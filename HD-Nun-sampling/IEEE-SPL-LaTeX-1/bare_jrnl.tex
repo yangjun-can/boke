@@ -1,0 +1,640 @@
+\documentclass[journal]{IEEEtran}
+
+\ifCLASSINFOpdf
+\else
+   \usepackage[dvips]{graphicx}
+\fi
+\usepackage{url}
+\hyphenation{op-tical net-works semi-conduc-tor}
+\usepackage{graphicx}
+\usepackage{color,xcolor}
+\usepackage{soul}
+\usepackage{cite}
+\usepackage{amsthm,amsmath,amssymb,lipsum}
+\usepackage{cuted}%%
+\usepackage{enumerate} % step1 2 3
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{stfloats}
+\newcounter{TempEqCnt}
+\usepackage{mathrsfs}
+\usepackage{subfigure}
+\usepackage{algpseudocode}
+%\usepackage{algorithmicx,algorithm,algorithmic}
+\usepackage[colorlinks,linkcolor=black,citecolor=black]{hyperref}
+\hyphenation{op-tical net-works semi-conduc-tor}
+\usepackage{easyReview} % 实现，高亮、删除线、替换等
+\usepackage{caption}
+\usepackage{booktabs} % 三线表
+\usepackage{diagbox} % 斜线
+\usepackage{algorithm,algpseudocode} % 伪代码
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+\newtheorem{remark}{Remark}
+
+\begin{document}
+
+\title{Reconstruction of Uniform Sample Signals Related to High-Dimensional LCT}
+
+\author{Deyun~Wei,~Jun~Yang %First A. Author, \IEEEmembership{Fellow, IEEE}, Second B. Author, and Third C. Author, Jr., \IEEEmembership{Member, IEEE}
+\thanks{Manuscript received June 14, 2022. This work was supported in part by the National Natural Science Foundation of China under Grant 61971328.}%This paragraph of the first footnote will contain the date on which you submitted your paper for review. It will also contain support information, including sponsor and financial support acknowledgment. For example, ``This work was supported in part by the U.S. Department of Commerce under Grant BS123456.'' 
+\thanks{D. Wei and J. Yang are with the School of Mathematics and Statistics, Xidian University, Xi’an 710071, China. (e-mail: dywei@xidian.edu.cn).}%The next few paragraphs should contain the authors' current affiliations, including current address and e-mail. For example, F. A. Author is with the National Institute of Standards and Technology, Boulder, CO 80305 USA (e-mail: author@boulder.nist.gov).
+% \thanks{S. B. Author, Jr., was with Rice University, Houston, TX 77005 USA. He is now with the Department of Physics, Colorado State University, Fort Collins, CO 80523 USA (e-mail: author@lamar.colostate.edu).}
+}
+
+\markboth{Journal of signal processing, June 2022}
+{Shell \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for IEEE Journals}
+\maketitle
+
+\begin{abstract}
+	
+%These instructions give you guidelines for preparing papers for IEEE Signal Processing Letters. Use this document as a template if you are using \LaTeX. Otherwise, use this document as an instruction set. The electronic file of your paper will be formatted further at IEEE. Paper titles should be written in uppercase and lowercase letters, not all uppercase. Do not write ``(Invited)'' in the title. Full names of authors are preferred in the author field, but are not required. Put a space between authors’ initials. The abstract must be a concise yet comprehensive reflection of what is in your article. In particular, the abstract must be self-contained, without abbreviations, footnotes, or references. It should be a microcosm of the full article. The abstract is typically between 100--175 words. The abstract must be written as one paragraph, and should not contain displayed mathematical equations or tabular material. The abstract should include three or four different keywords or phrases, as this will help readers to find it. It is important to avoid over-repetition of such phrases as this can result in a page being rejected by search engines. Ensure that your abstract reads well and is grammatically correct.摘要一般在100-175字之间,包括三或四个不同的关键词或短语
+\end{abstract}
+
+\begin{IEEEkeywords}
+	LCT, uniform sample, nonuniform sample, high dimension
+%Enter key words or phrases in alphabetical order, separated by commas. For a list of suggested keywords, send a blank e-mail to keywords@ieee.org or visit \url{http://www.ieee.org/organizations/pubs/ani_prod/keywrd98.txt}  %按字母顺序输入关键词或短语，用逗号分隔。
+\end{IEEEkeywords}
+
+
+\IEEEpeerreviewmaketitle
+
+
+
+\section{Introduction}
+
+\IEEEPARstart{T}{he} linear canonical transform is one of the most powerful tools to deal with non-stationary signals.
+
+
+%document is a template for \LaTeX. If you are reading a paper or PDF version of this document, please download the electronic file, trans\_jour.tex, from the IEEE Web site at \url{http://www.ieee.org/authortools/trans_jour.tex} so you can use it to prepare your manuscript. If you would prefer to use LaTeX, download IEEE's LaTeX style and sample files from the same Web page. You can also explore using the Overleaf editor at {https://www.overleaf.com/blog/278-how-to-use-overleaf-with-ieee-collabratec-your-quick-guide-to-getting-started\#.xsVp6tpPkrKM9}
+%If your paper is intended for a conference, please contact your conference editor concerning acceptable word processor formats for your particular conference.  
+
+\section{Preliminaries}
+
+\subsection{H-dimensional linear canonical transform}
+% H维信号f的参数为A的线性正则变换能够表示为：
+The LCT with parameters $ A = [a,b;c,d]$ of the H-dimensional signal $ f(\boldsymbol t) $  can be expressed as
+ \begin{align}
+ 	{F_A}(\boldsymbol u) = \int\limits_{ - \infty }^\infty   \ldots  \int\limits_{ - \infty }^\infty  {f(\boldsymbol t)\prod\limits_{i = 1}^H {{\mathcal{K}_A}({u_i},{t_i})} } d{t_1} \cdots d{t_H}
+ \end{align}
+where $A$ is a parameter matrix of real numbers with $ \left| A \right| = 1 $ and $H$ is a positive integer. Meanwhile, $ \boldsymbol t = ({t_1},{t_2}, \cdots, {t_H}) \in {R^H} $ and $ \boldsymbol u = ({u_1},{u_2}, \cdots , {u_H}) \in {R^H} $. In addition, $\mathcal{K} _A ({u_i},{t_i})$ is the kernel function of the one dimensional LCT, which is defined as  
+\begin{align}
+	{\mathcal{K}_A}({u},{t}) = \left\{ {\begin{array}{*{20}{c}}
+		{\sqrt {\frac{1}{{j2\pi b}}} e^ {\frac{j}{{2b}}(at^2 - 2{u}{t} + du^2)}}&{,b \ne 0}\\
+		{\sqrt d e^{ \frac{{jcd}}{2}u^2 }\delta (d{u})}&{,b = 0}
+   \end{array}} \right.
+\end{align}
+and $ \delta() $ is the unit impulse function. $j$ is the imaginary unit with ${j^2} =  - 1$.
+
+% 上述的 HD LCT 是一个酉变换，即逆变换为
+The above HD LCT is an unitary transform. That is, its corresponding inverse transform can be expressed as
+\begin{align}
+	f(\boldsymbol t) = \int\limits_{ - \infty }^\infty   \ldots  \int\limits_{ - \infty }^\infty  {{F_{{A}}}({\boldsymbol {u}})\prod\limits_{i = 1}^H {{{\cal K}_{A^{ - 1}}}({t_i},{u_i})} } d{u_1} \cdots d{u_H}
+\end{align}
+% 根据定义，当b=0时，HD LCT退化为chirp乘积。不失一般性，在后续的内容中，我们假设b>0. 因此，HD LCT和 HD ILCT被简化为
+By definition, HD LCT degenerates to a chirp product when b = 0. Without loss of generality, we assume that $b > 0$ in subsequent sections. Then, HD LCT and HD ILCT are simplified to
+\begin{align}  \label{HD LCT}
+		{F_A}(\boldsymbol u) &= \frac{1}{{{{(j2\pi b)}^{\frac{H}{2}}}}}\int_{{R^H}} {f(\boldsymbol t){e^{\frac{j}{{2b}}[a{\boldsymbol t^T}\boldsymbol t - 2{\boldsymbol t^T}\boldsymbol u + d{\boldsymbol u^T}\boldsymbol u]}}} d\boldsymbol t\\
+		f(\boldsymbol t) &= \frac{1}{{{{( - j2\pi b)}^{\frac{H}{2}}}}}\int_{{R^H}} {{F_A}(\boldsymbol u){e^{ - \frac{j}{{2b}}[a{\boldsymbol t^T}\boldsymbol t - 2{\boldsymbol t^T}\boldsymbol u + d{\boldsymbol u^T}\boldsymbol u]}}} d\boldsymbol u
+		\label{HD ILCT}
+\end{align}
+where, $T$ indicates transpose.
+
+%带限信号是傅里叶域采样理论的重要依据之一，同样的，LCT域中带限信号信号的研究很重要。 H维信号f在参数矩阵A的线性正则变换域带限，如果存在有界开集D,使得
+Bandlimited signal is one of the important basis of Fourier domain sampling theory. Similarly, the research on bandlimited signal in LCT domain is important. The H-dimensional signal $f(\boldsymbol t)$ is bandlimited in the LCT domain with the parameter matrix $A$, if there exists a bounded open set $ D \subset {R^H} $ and the HD LCT of $f(\boldsymbol t)$ satisfies
+\begin{align}
+	{F_A}(\boldsymbol u) = 0, \boldsymbol u \notin D
+\end{align}
+
+\subsection{Lattice sampled signal and its HD LCT}
+% 在这一小节中，我们将要介绍把高维信号在任意格点采样的细节以及采样后信号的LCT.
+In this subsection, we will introduce the details of high-dimensional signals sampling at any grid. And the LCT of the sampled signals is described. 
+
+%假设  是非奇异的实数矩阵，由其构造的采样格点定义为 与其相关联的单位细胞定义为
+Assuming that ${\Delta _t} \in {\mathcal{R} ^{H \times H}} $ is a nonsingular real number matrix, the sampling lattice constructed by ${\Delta _t}$ is defined as
+\begin{align}
+	Lat({\Delta _t}) = \{ {\Delta _t}\boldsymbol n, \boldsymbol n \in {\mathcal Z^{H \times 1}}\}  
+	\label{Lat} 
+\end{align}
+and ${\Delta _t}$ is known as generator of lattices \eqref{Lat}. The associated unit cell $\mathbb{U}(\Delta _t)$ is defined as 
+\begin{align}
+	\mathbb U({\Delta _t}) = \{ {\Delta _t}\boldsymbol t: \boldsymbol t \in {[0,1)^H}\} 
+\end{align}
+
+% 格点产生器作用在H维信号f(t)上得到的采样信号为
+Acting the lattice generator ${\Delta _t}$ on the H-dimensional signal $f (\boldsymbol t )$, the sampled signal is
+\begin{align}
+	\widetilde f(\boldsymbol t) = f(\boldsymbol t)\sum\limits_{\boldsymbol n \in {\mathcal Z^{H \times 1}}} {\delta (\boldsymbol t - {\Delta _t}\boldsymbol n)} 
+\end{align}
+where $ \delta() $ is the H-dimensional unit impulse function.
+% 根据定义，采样信号的HD LCT能够表示为
+According to the definition \eqref{HD LCT}, HD LCT with parameter matrix $A$ of sampled signal $ \widetilde f(\boldsymbol t) $ can be expressed as 
+\begin{align}
+	{{\tilde F}_A}(\boldsymbol u) = \frac{1}{{\left| {\det {\Delta _t}} \right|}}{e^{\frac{{jd}}{{2b}}{\boldsymbol u^T}\boldsymbol u}}\sum\limits_{\boldsymbol n \in {\mathcal Z^{H \times 1}}} {{F_A}(\boldsymbol u'){e^{ - \frac{{jd}}{{2b}}{{(\boldsymbol u')}^T}\boldsymbol u'}}} 
+	\label{LCT of Uniform}
+\end{align}
+where $F_A(\boldsymbol u)$ denotes the HD LCT of original continuous signal $ f(\boldsymbol t) $ and $ \boldsymbol u' =\boldsymbol u - 2\pi b\Delta _t^{ - T} \boldsymbol n $. Moreover, ${\det }$ represents the determinant. 
+
+% 由上式可以看出，时域采样导致LCT域周期化，且频谱重复间隔为倒格点。
+It can be seen from \eqref{LCT of Uniform} that sampling in time domain induces periodicity (phase transition) in HD LCT domain. And the spectrum replicates with reciprocal lattice $ Lat(2\pi b\Delta _t^{- T}) $. 
+%此外，如果f(t)是带限于D, 那么F_A(u)的支撑为： 研究表明，当上述公式满足约束时，D能够通过采样器采样，且原始信号能被采样点唯一的重构。
+Moreover, if $f (\boldsymbol t)$ is bandlimited to set $D\subset {R^H}$ in the LCT domain with parameter $A$, then the support of $\tilde F _ A ( \boldsymbol u )$ is expressed as 
+\begin{align}
+	{\rm{supp}}.{{\tilde F}_A}({\boldsymbol{u}}) = \bigcup\limits_{\boldsymbol l \in Lat(2\pi b\Delta _t^{ - T})} {(D - \boldsymbol l)} 
+	\label{supp}
+\end{align}
+Research shows that if \eqref{supp} satisfies the following constraints,
+\begin{align}
+	D \cap (D -\boldsymbol l) &= \emptyset , \boldsymbol l \in Lat(2\pi b\Delta _t^{ - T})\backslash \{ 0\} \\
+	{R^H} &= \bigcup\limits_{\boldsymbol l \in Lat(2\pi b\Delta _t^{ - T})} {(D -\boldsymbol l)} 
+\end{align}
+then the original signal can be reconstructed by the sampling point uniquely and $D = \mathbb{U} (2 \pi b\Delta _t^{ - T})$. Similarly, sampling by lattice generator $\Delta _u$ in HD LCT domain induces periodicity with lattice $ Lat(2\pi b\Delta _u^{- T}) $ in time domain.
+
+%通过在LCTD一个周期上均匀采样，得到LCT格点矩阵。因此，离散信号的DLCT为
+By sampling $(N, N, \cdots, N)$ points uniformly in one period $2\pi b\Delta _t^{- T}$ in the HD LCT domain, the lattice generator in the LCT can be denoted as 
+\begin{align}
+	{\Delta _u} = \frac{{2\pi b\Delta _t^{ - T}}}{N}
+\end{align}
+Therefore, the HD DLCT with parameter matrix $A$ of discrete signals 
+\begin{align}
+	f(\boldsymbol n) = f({\Delta _t}{\boldsymbol{n}}),\boldsymbol n \in {[N]^H}.
+\end{align} is defined as
+\begin{align}
+	{F_A}(\boldsymbol m) =C \sum\limits_{\boldsymbol n \in {{[N]}^H}} {f(\boldsymbol n){e^{\frac{j}{{2b}}\psi}e^{  - j\frac{{2\pi }}{N}{\boldsymbol n^T}\boldsymbol m}}}
+	\label{DLCT}
+\end{align}
+where $\boldsymbol m \in {{[N]}^H}$, $[N]$ denotes $\{ \lambda \bmod N:\lambda  \in \mathcal Z\} $ and 
+\begin{align}
+		\psi=d{\boldsymbol m^{T}}\Delta _u^T{\Delta _u}\boldsymbol m + a{\boldsymbol n^{T}}\Delta _t^T{\Delta _t}\boldsymbol n .
+\end{align}
+Coefficient $C=1/{{N^{\frac{H}{2}}}}$ to ensure reversibility. Likewise, HD ILCT with parameter matrix $A$ is defined as
+\begin{align}
+		{f}(\boldsymbol n) = C\sum\limits_{\boldsymbol m \in { {[N]}^H}} {F_A(\boldsymbol m){e^{-\frac{j}{{2b}}\psi}e^{ j\frac{{2\pi }}{N}{\boldsymbol n^T}\boldsymbol m}}} 
+		\label{IDLCT}
+\end{align}
+
+\section{Reconstruction of uniform signals from nonuniform samples}
+% 由于系统噪声的影响，在应用中，AD转换器经常获取非均匀格点的样本。这些格点可以看作均匀格点的随机扰动。将获取的样本看作均匀格点上的样本进行使用会导致错误。接下来我们将给出如何从非均匀格点的样本中重构均匀格点的样本。
+Due to system noise, AD converters acquire samples in non-uniform lattices for applications. In fact, these lattices can be regarded as random perturbations of uniform lattices. Applying the acquired samples as samples on uniform lattices will lead to errors. Subsequently, we will give how to reconstruct samples of uniform lattice points from samples of non-uniform lattice points.
+
+% 假设H维连续信号f(t)在参数矩阵为A的HD LCT域中带限于集合D。按照格点产生器采样获取的序列记为f(n).其HD DLCT表示为\eqref{DLCT},相应的逆变换为\eqref{IDLCT}。
+Assume that the H-dimensional continuous signal $ f(\boldsymbol t) $ is bandlimited to set D in the HD LCT domain with parameter matrix $ A $. The sampling sequence with size $N^H$ obtained by the lattice generator $\Delta _t$ is denoted as $f(\boldsymbol n), \boldsymbol n \in {[N]^H}  $. The HD DLCT is denoted as \eqref{DLCT}, and the corresponding inverse transform is \eqref{IDLCT}. 
+
+% 假设随机扰动是d, 那么非均匀的采样信号为, 它的HD LCT能够表示为。此外，信号采样的能够表示为
+Suppose the random perturbation is $ {\xi _{\boldsymbol n}} $, then the non-uniform sampled signal is 
+\begin{align}
+	 f'(\boldsymbol n) = f({\Delta _t}({\boldsymbol{n}} + {\xi _{\boldsymbol n}})),\boldsymbol n \in {[N]^H} 
+\end{align}
+And HD DLCT of $ {\xi _{\boldsymbol n}} $ is represented as
+\begin{align}
+	{F'_A}({\bf{m}}) = C\sum\limits_{{\bf{n}} \in {{[N]}^H}} {f'({\bf{n}}){e^{\frac{j}{{2b}}\psi }}{e^{ - j\frac{{2\pi }}{N}{{\bf{n}}^T}{\bf{m}}}}} 
+	\label{NU DLCT}
+\end{align}
+Besides, making use of \eqref{IDLCT}, $ f'(\boldsymbol n) $ can be expressed as
+\begin{align}
+	f'({\bf{n}}) = C\sum\limits_{{\bf{m}} \in {{[N]}^H}} {{F_A}({\bf{m}}){e^{ - \frac{j}{{2b}}\varphi }}{e^{j\frac{{2\pi }}{N}{{({\bf{n}} + {\xi _{\bf{n}}})}^T}{\bf{m}}}}}
+	\label{NUILCT} 
+\end{align}
+where
+\begin{align}
+	\varphi  = d{{\bf{m}}^T}\Delta _u^T{\Delta _u}{\bf{m}} + a{({\bf{n}} + {\xi _{\bf{n}}})^T}\Delta _t^T{\Delta _t}({\bf{n}} + {\xi _{\bf{n}}})
+	\label{varphi}
+\end{align}
+Insert \eqref{NUILCT} into \eqref{NU DLCT}, it can be obtained that 
+\begin{align}
+		{{F'}_A}({\bf{m}}) =& C^2\sum\limits_{{\bf{n}} \in {{[N]}^H}} [\sum\limits_{\boldsymbol k \in {{[N]}^H}}    
+		                 {F_A}(\boldsymbol k) e^{ - \frac{jd}{{2b}}{\boldsymbol k^T}\Delta _u^T{\Delta _u}k} \notag\\
+						 &e^{ - \frac{ja}{{2b}}{{({\bf{n}} + {\xi _{\bf{n}}})}^T}\Delta _t^T{\Delta _t}({\bf{n}} + {\xi _{\bf{n}}})} {e^{j\frac{{2\pi }}{N}{{({\bf{n}} + {\xi _{\bf{n}}})}^T}\boldsymbol k}}]\notag\\
+					 &{e^{\frac{j}{{2b}}[{d{{\bf{m}}^T}\Delta _u^T{\Delta _u}{\bf{m}} + a{{\bf{n}}^T}\Delta _t^T{\Delta _t}{\bf{n}}}]}}
+					 {e^{ - j\frac{{2\pi }}{N}{{\bf{n}}^T}{\bf{m}}}}\notag\\
+		= & {N^{ - H}} {e^{\frac{{jd}}{{2b}}{{\bf{m}}^T}\Delta _u^T{\Delta _u}{\bf{m}}}} \sum\limits_{k \in {{[N]}^H}} [\sum\limits_{n \in {{[N]}^H}} e^{ j\frac{{2\pi }}{N}\xi _n^Tk }\notag\\
+		& e^{ - \frac{{ja}}{{2b}} [\xi _n^T\Delta _t^T{\Delta _t}({\bf{n}}+ {\xi _{\bf{n}}})
+		 +{{\bf{n}}^T}\Delta _t^T{\Delta _t}{\xi _{\bf{n}}}] - j\frac{{2\pi }}{N} {{\bf{n}}^T}({\bf{m}} - k)} ]\notag\\
+	   & {F_A}(k){e^{ - \frac{{jd}}{{2b}}{k^T}\Delta _u^T{\Delta _u}k}}\notag\\
+	 = & {N^{ - H}}{e^{\frac{{jd}}{{2b}}{{\bf{m}}^T}\Delta _u^T{\Delta _u}{\bf{m}}}}\sum\limits_{k \in {{[N]}^H}} {B(k,{\bf{m}} - k){F_A}(k){e^{ - \frac{{jd}}{{2b}}{k^T}\Delta _u^T{\Delta _u}k}}} 
+\end{align}
+where
+\begin{align}
+	B(k,m) = \sum\limits_{n \in {{[N]}^H}} {{e^{ - \frac{{ja}}{{2b}}[\xi _n^T\Delta _t^T{\Delta _t}({\bf{n}} + {\xi _{\bf{n}}}) + {{\bf{n}}^T}\Delta _t^T{\Delta _t}{\xi _{\bf{n}}}] + j\frac{{2\pi }}{N}[\xi _n^Tk - {{\bf{n}}^T}({\bf{m}} - k)]}}} 
+\end{align}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Guidelines For Manuscript Preparation}
+
+The IEEEtran\_HOWTO.pdf is the complete guide of \LaTeX\ for manuscript preparation included with this stuff. 
+
+\subsection{Information for Authors}
+
+{\em IEEE Signal Processing Letters} allows only four-page articles. A fifth page is allowed for ``References'' only, though ``References'' may begin before the fifth page. Author biographies or photographs are not allowed in Signal Processing Letters. Please review the Information for Authors at for {\em IEEE Signal Processing Letters:} https://signalprocessingsociety.org/publications-resources/ieee-signal-processing-letters/information-authors-spl %只允许四页的文章。第五页只允许 "参考文献"，但 "参考文献 "可以在第五页之前开始。
+
+
+\section{Guidelines for Graphics Preparation and Submission}
+\label{sec:guidelines}
+
+\subsection{Types of Graphics}
+The following list outlines the different types of graphics published in 
+{\it IEEE Signal Processing Letters}. They are categorized based on their construction, and use of 
+color/shades of gray:
+
+\subsubsection{Color/Grayscale figures}
+{Figures that are meant to appear in color, or shades of black/gray. Such figures may include photographs, illustrations, multicolor graphs, and flowcharts.}
+
+\subsubsection{Line Art figures}
+{Figures that are composed of only black lines and shapes. These figures should have no shades or half-tones of gray, only black and white.}
+
+\subsubsection{Tables}
+{Data charts which are typically black and white, but sometimes include color.}
+
+
+
+\subsection{Multipart figures}
+Figures compiled of more than one sub-figure presented side-by-side, or stacked. If a multipart figure is made up of multiple figure types (one part is lineart, and another is grayscale or color) the figure should meet the stricter guidelines.
+
+\subsection{File Formats For Graphics}\label{formats}
+Format and save your graphics using a suitable graphics processing program that will allow you to create the images as PostScript (PS), Encapsulated PostScript (.EPS), Tagged Image File Format (.TIFF), Portable Document Format (.PDF), Portable Network Graphics (.PNG), or Metapost (.MPS), sizes them, and adjusts the resolution settings. When submitting your final paper, your graphics should all be submitted individually in one of these formats along with the manuscript.
+
+\subsection{Sizing of Graphics}
+Most charts, graphs, and tables are one column wide (3.5 inches/88 millimeters/21 picas) or page wide (7.16 inches/181 millimeters/43 picas). The maximum depth a graphic can be is 8.5 inches (216 millimeters/54 picas). When choosing the depth of a graphic, please allow space for a caption. Figures can be sized between column and page widths if the author chooses, however it is recommended that figures are not sized less than 
+column width unless when necessary.  % 图片格式
+% 插图的例子
+\begin{figure}
+\centerline{\includegraphics[width=\columnwidth]{fig1.png}}
+\caption{Magnetization as a function of applied field. Note that ``Fig.'' is abbreviated. There is a period after the figure number, followed by two spaces. It is good practice to explain the significance of the figure in the caption.}
+\end{figure}
+% 插表的例子
+\begin{table}
+\caption{Units for Magnetic Properties}
+\label{table}
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{|p{25pt}|p{75pt}|p{110pt}|}
+\hline
+Symbol& Quantity& Conversion from Gaussian and \par CGS EMU to SI$^{\mathrm{a}}$ \\
+\hline
+$\Phi $& Magnetic flux& 1 Mx $\to  10^{-8}$ Wb $= 10^{-8}$ V $\cdot$ s \\
+$B$& Magnetic flux density, \par magnetic induction& 1 G $\to  10^{-4}$ T $= 10^{-4}$ Wb/m$^{2}$ \\
+$H$& Magnetic field strength& 1 Oe $\to  10^{-3}/(4\pi )$ A/m \\
+$m$& Magnetic moment& 1 erg/G $=$ 1 emu \par $\to 10^{-3}$ A $\cdot$ m$^{2} = 10^{-3}$ J/T \\
+$M$& Magnetization& 1 erg/(G $\cdot$ cm$^{3}) =$ 1 emu/cm$^{3}$ \par $\to 10^{-3}$ A/m \\
+4$\pi M$& Magnetization& 1 G $\to  10^{-3}/(4\pi )$ A/m \\
+$\sigma $& Specific magnetization& 1 erg/(G $\cdot$ g) $=$ 1 emu/g $\to $ 1 A $\cdot$ m$^{2}$/kg \\
+$j$& Magnetic dipole \par moment& 1 erg/G $=$ 1 emu \par $\to 4\pi \times  10^{-10}$ Wb $\cdot$ m \\
+$J$& Magnetic polarization& 1 erg/(G $\cdot$ cm$^{3}) =$ 1 emu/cm$^{3}$ \par $\to 4\pi \times  10^{-4}$ T \\
+$\chi , \kappa $& Susceptibility& 1 $\to  4\pi $ \\
+$\chi_{\rho }$& Mass susceptibility& 1 cm$^{3}$/g $\to  4\pi \times  10^{-3}$ m$^{3}$/kg \\
+$\mu $& Permeability& 1 $\to  4\pi \times  10^{-7}$ H/m \par $= 4\pi \times  10^{-7}$ Wb/(A $\cdot$ m) \\
+$\mu_{r}$& Relative permeability& $\mu \to \mu_{r}$ \\
+$w, W$& Energy density& 1 erg/cm$^{3} \to  10^{-1}$ J/m$^{3}$ \\
+$N, D$& Demagnetizing factor& 1 $\to  1/(4\pi )$ \\
+\hline
+\multicolumn{3}{p{251pt}}{Vertical lines are optional in tables. Statements that serve as captions for 
+the entire table do not need footnote letters. }\\
+\multicolumn{3}{p{251pt}}{$^{\mathrm{a}}$Gaussian units are the same as cg emu for magnetostatics; Mx 
+$=$ maxwell, G $=$ gauss, Oe $=$ oersted; Wb $=$ weber, V $=$ volt, s $=$ second, T $=$ tesla, m $=$ meter, A $=$ ampere, J $=$ joule, kg $=$ kilogram, H $=$ henry.}
+\end{tabular}
+\label{tab1}
+\end{table}
+
+
+\subsection{Resolution }
+The proper resolution of your figures will depend on the type of figure it is as defined in the ``Types of Figures'' section. Author photographs, color, and grayscale figures should be at least 300dpi. Line art, including tables should be a minimum of 600dpi. %图片分辨率至少300dpi
+
+\subsection{Vector Art}
+In order to preserve the figures' integrity across multiple computer platforms, we accept files in the following formats: .EPS/.PDF/.PS. All fonts must be embedded or text converted to outlines in order to achieve the best-quality results.
+
+
+\subsection{Accepted Fonts Within Figures}
+When preparing your graphics IEEE suggests that you use of one of the following Open Type fonts: Times New Roman, Helvetica, Arial, Cambria, and Symbol. If you are supplying EPS, PS, or PDF files all fonts must be embedded. Some fonts may only be native to your operating system; without the fonts embedded, parts of the graphic may be distorted or missing. 
+%图片字体都必须被嵌入图片。
+
+A safe option when finalizing your figures is to strip out the fonts before you save the files, creating ``outline'' type. This converts fonts to artwork what will appear uniformly on any screen.
+
+\subsection{Using Labels Within Figures}
+
+\subsubsection{Figure Axis labels }
+Figure axis labels are often a source of confusion. Use words rather than symbols. As an example, write the quantity ``Magnetization,'' or ``Magnetization M,'' not just ``M.'' Put units in parentheses. Do not label axes only with units. As in Fig. 1, for example, write ``Magnetization (A/m)'' or ``Magnetization (A$\cdot$m$^{-1}$),'' not just ``A/m.'' Do not label axes with a ratio of quantities and units. For example, write ``Temperature (K),'' not ``Temperature/K.'' % 图片坐标轴注释不要写缩略语，单位写在括号中
+
+Multipliers can be especially confusing. Write ``Magnetization (kA/m)'' or ``Magnetization (10$^{3}$ A/m).'' Do not write ``Magnetization (A/m)$\,\times\,$1000'' because the reader would not know whether the top axis label in Fig. 1 meant 16000 A/m or 0.016 A/m. Figure labels should be legible, approximately 8 to 10 point type.
+
+\subsubsection{Subfigure Labels in Multipart Figures and Tables}
+Multipart figures should be combined and labeled before final submission. Labels should appear centered below each subfigure in 8 point Times New Roman font in the format of (a) (b) (c). 
+
+\subsection{File Naming}
+Figures (line artwork or photographs) should be named starting with the first 5 letters of the author's last name. The next characters in the filename should be the number that represents the sequential location of this image in your article. For example, in author ``Anderson's'' paper, the first three figures would be named ander1.tif, ander2.tif, and ander3.ps.%图（线条图或照片）应以作者姓氏的前五个字母+图片序号命名。
+
+Tables should contain only the body of the table (not the caption) and should be named similarly to figures, except that `.t' is inserted in-between the author's name and the table number. For example, author Anderson's first three tables would be named ander.t1.tif, ander.t2.ps, ander.t3.eps.
+
+\subsection{Referencing a Figure or Table Within Your Paper}
+When referencing your figures and tables within your paper, use the abbreviation ``Fig.'' even at the beginning of a sentence. Do not abbreviate ``Table.'' Tables should be numbered with Roman Numerals.  %文中描述图片表格使用 Fig. Table.
+
+\subsection{Checking Your Figures: The IEEE Graphics Analyzer}
+The IEEE Graphics Analyzer enables authors to pre-screen their graphics for compliance with IEEE Transactions and Journals standards before submission. The online tool, located at
+\underline{http://graphicsqc.ieee.org/}, allows authors to 
+upload their graphics in order to check that each file is the correct file format, resolution, size and colorspace; that no fonts are missing or corrupt; that figures are not compiled in layers or have transparency, and that they are named according to the IEEE Transactions and Journals naming convention. At the end of this automated process, authors are provided with a detailed report on each graphic within the web applet, as well as by email. %IEEE图形分析器使作者能够在投稿前对其图形进行预检
+
+For more information on using the Graphics Analyzer or any other graphics related topic, contact the IEEE Graphics Help Desk by e-mail at graphics@ieee.org.
+
+\subsection{Submitting Your Graphics}
+Because IEEE will do the final formatting of your paper, you do not need to position figures and tables at the top and bottom of each column. In fact, all figures, figure captions, and tables can be placed at the end of your paper. In addition to, or even in lieu of submitting figures within your final manuscript, figures should be submitted individually, separate from the manuscript in one of the file formats listed above in 
+Section \ref{formats}. Place figure captions below the figures; place table titles above the tables. Please do not include captions as part of the figures, or put them in ``text boxes'' linked to the figures. Also, do not place borders around the outside of your figures. %所有数字、数字说明和表格都可以放在论文的最后。IEEE会对你的论文进行最终的格式化处理。
+
+\subsection{Color Processing/Printing in IEEE Journals}
+All IEEE Transactions, Journals, and Letters allow an author to publish color figures on IEEE Xplore\textregistered\ at no charge, and automatically convert them to grayscale for print versions. In most journals, figures and tables may alternatively be printed in color if an author chooses to do so. Please note that this service comes at an extra expense to the author. If you intend to have print color graphics, include a note with your final paper indicating which figures or tables you would like to be handled that way, and stating that you are willing to pay the additional fee.
+
+
+\section{Conclusion}
+
+A conclusion section is not required. Although a conclusion may review the main points of the paper, do not replicate the abstract as the conclusion. A conclusion might elaborate on the importance of the work or suggest applications and extensions. 
+%结论可以阐述工作的重要性或建议应用和扩展。
+\section*{Acknowledgment}
+
+The preferred spelling of the word ``acknowledgment'' in American English is without an ``e'' after the ``g.'' Use the singular heading even if you have many acknowledgments. Avoid expressions such as ``One of us (S.B.A.) would like to thank . . . .'' Instead, write “F. A. Author thanks ... .” In most cases, sponsor and financial support acknowledgments are placed in the unnumbered footnote on the first page, not here.
+
+\section*{References and Footnotes}
+
+\subsection{References}
+
+References need not be cited in text. When they are, they appear on the line, in square brackets, inside the punctuation.  Multiple references are each numbered with separate brackets. When citing a section in a book, please give the relevant page numbers. In text, refer simply to the reference number. Do not use ``Ref.'' or ``reference'' except at the beginning of a sentence: ``Reference [3] shows . . . .'' Please do not use automatic endnotes in {\em Word}, rather, type the reference list at the end of the paper using the ``References'' style.
+
+Reference numbers are set flush left and form a column of their own, hanging out beyond the body of the reference. The reference numbers are on the line, enclosed in square brackets. In all references, the given name of the author or editor is abbreviated to the initial only and precedes the last name. Use them all; use {\em et al.} only if names are not given. Use commas around Jr., Sr., and III in names. Abbreviate conference titles.  When citing IEEE transactions, provide the issue number, page range, volume number, year, and/or month if available. When referencing a patent, provide the day and the month of issue, or application. References may not include all information; please obtain and include relevant information. Do not combine references. There must be only one reference with each number. If there is a URL included with the print reference, it can be included at the end of the reference.
+
+Other than books, capitalize only the first word in a paper title, except for proper nouns and element symbols. For papers published in translation journals, please give the English citation first, followed by the original foreign-language citation. See the end of this document for formats and examples of common references. For a complete discussion of references and their formats, see the IEEE style manual at www.ieee.org/authortools.
+
+\subsection{Footnotes}
+
+Number footnotes separately in superscripts (Insert $\mid$ Footnote).\footnote{It is recommended that footnotes be avoided (except for the unnumbered footnote with the receipt date on the first page). Instead, try to integrate the footnote information into the text.}  Place the actual footnote at the bottom of the column in which it is cited; do not put footnotes in the reference list (endnotes). Use letters for table footnotes (see Table I). 
+
+
+\section*{References}
+
+\subsection*{Basic format for books:}
+
+J. K. Author, ``Title of chapter in the book,'' in {\em Title of His Published Book}, xth ed. City of Publisher, (only U.S. State), Country: Abbrev. of Publisher, year, ch. x, sec. x, pp. xxx--xxx.
+
+\subsection*{Examples:}
+\def\refname{}
+\begin{thebibliography}{34}
+
+\bibitem{}G. O. Young, ``Synthetic structure of industrial plastics,'' in {\em Plastics}, 2nd ed., vol. 3, J. Peters, Ed. New York, NY, USA: McGraw-Hill, 1964, pp. 15--64.
+
+\bibitem{}W.-K. Chen, {\it Linear Networks and Systems}. Belmont, CA, USA: Wadsworth, 1993, pp. 123--135.
+
+\end{thebibliography}
+
+\subsection*{Basic format for periodicals:}
+
+J. K. Author, ``Name of paper,'' Abbrev. Title of Periodical, vol. x,   no. x, pp. xxx--xxx, Abbrev. Month, year, DOI. 10.1109.XXX.123--456.
+
+\subsection*{Examples:}
+
+\begin{thebibliography}{34}
+\setcounter{enumiv}{2}
+
+\bibitem{}J. U. Duncombe, ``Infrared navigation Part I: An assessment of feasibility,'' {\em IEEE Trans. Electron Devices}, vol. ED-11, no. 1, pp. 34--39, Jan. 1959,10.1109/TED.2016.2628402.
+
+\bibitem{}E. P. Wigner, ``Theory of traveling-wave optical laser,''
+{\em Phys. Rev.},  vol. 134, pp. A635--A646, Dec. 1965.
+
+\bibitem{}E. H. Miller, ``A note on reflector arrays,'' {\em IEEE Trans. Antennas Propagat.}, to be published.
+\end{thebibliography}
+
+
+\subsection*{Basic format for reports:}
+
+J. K. Author, ``Title of report,'' Abbrev. Name of Co., City of Co., Abbrev. State, Country, Rep. xxx, year.
+
+\subsection*{Examples:}
+\begin{thebibliography}{34}
+\setcounter{enumiv}{5}
+
+\bibitem{} E. E. Reber, R. L. Michell, and C. J. Carter, ``Oxygen absorption in the earth’s atmosphere,'' Aerospace Corp., Los Angeles, CA, USA, Tech. Rep. TR-0200 (4230-46)-3, Nov. 1988.
+
+\bibitem{} J. H. Davis and J. R. Cogdell, ``Calibration program for the 16-foot antenna,'' Elect. Eng. Res. Lab., Univ. Texas, Austin, TX, USA, Tech. Memo. NGL-006-69-3, Nov. 15, 1987.
+\end{thebibliography}
+
+\subsection*{Basic format for handbooks:}
+
+{\em Name of Manual/Handbook}, x ed., Abbrev. Name of Co., City of Co., Abbrev. State, Country, year, pp. xxx--xxx.
+
+\subsection*{Examples:}
+
+\begin{thebibliography}{34}
+\setcounter{enumiv}{7}
+
+\bibitem{} {\em Transmission Systems for Communications}, 3rd ed., Western Electric Co., Winston-Salem, NC, USA, 1985, pp. 44--60.
+
+\bibitem{} {\em Motorola Semiconductor Data Manual}, Motorola Semiconductor Products Inc., Phoenix, AZ, USA, 1989.
+\end{thebibliography}
+
+\subsection*{Basic format for books (when available online):}
+
+J. K. Author, ``Title of chapter in the book,'' in {\em Title of Published Book}, xth ed. City of Publisher, State, Country: Abbrev. of Publisher, year, ch. x, sec. x, pp. xxx xxx. [Online]. Available: http://www.web.com 
+
+\subsection*{Examples:}
+
+\begin{thebibliography}{34}
+\setcounter{enumiv}{9}
+
+\bibitem{}G. O. Young, ``Synthetic structure of industrial plastics,'' in Plastics, vol. 3, Polymers of Hexadromicon, J. Peters, Ed., 2nd ed. New York, NY, USA: McGraw-Hill, 1964, pp. 15--64. [Online]. Available: http://www.bookref.com. 
+
+\bibitem{} {\em The Founders Constitution}, Philip B. Kurland and Ralph Lerner, eds., Chicago, IL, USA: Univ. Chicago Press, 1987. [Online]. Available: http://press-pubs.uchicago.edu/founders/
+
+\bibitem{} The Terahertz Wave eBook. ZOmega Terahertz Corp., 2014. [Online]. Available: http://dl.z-thz.com/eBook/zomega\_ebook\_pdf\_1206\_sr.pdf. Accessed on: May 19, 2014. 
+
+\bibitem{} Philip B. Kurland and Ralph Lerner, eds., {\em The Founders Constitution}. Chicago, IL, USA: Univ. of Chicago Press, 1987, Accessed on: Feb. 28, 2010, [Online] Available: http://press-pubs.uchicago.edu/founders/ 
+\end{thebibliography}
+
+\subsection*{Basic format for journals (when available online):}
+
+J. K. Author, ``Name of paper,'' {\em Abbrev. Title of Periodical}, vol. x, no. x, pp. xxx--xxx, Abbrev. Month, year. Accessed on: Month, Day, year, doi: 10.1109.XXX.123456, [Online].
+
+\subsection*{Examples:}
+
+\begin{thebibliography}{34}
+\setcounter{enumiv}{13}
+
+\bibitem{}J. S. Turner, ``New directions in communications,'' {\em IEEE J. Sel. Areas Commun.}, vol. 13, no. 1, pp. 11--23, Jan. 1995. 
+
+\bibitem{} W. P. Risk, G. S. Kino, and H. J. Shaw, ``Fiber-optic frequency shifter using a surface acoustic wave incident at an oblique angle,'' {\em Opt. Lett.}, vol. 11, no. 2, pp. 115--117, Feb. 1986.
+
+\bibitem{} P. Kopyt {\em et al.}, ``Electric properties of graphene-based conductive layers from DC up to terahertz range,'' {\em IEEE THz Sci. Technol.}, to be published. doi: 10.1109/TTHZ.2016.2544142.
+\end{thebibliography}
+
+\subsection*{Basic format for papers presented at conferences (when available online):}
+
+J.K. Author. (year, month). Title. presented at abbrev. conference title. [Type of Medium]. Available: site/path/file
+
+\subsection*{Example:}
+
+\begin{thebibliography}{34}
+\setcounter{enumiv}{16}
+
+\bibitem{}PROCESS Corporation, Boston, MA, USA. Intranets: Internet technologies deployed behind the firewall for corporate productivity. Presented at INET96 Annual Meeting. [Online]. Available: http://home.process.com/Intranets/wp2.htp
+\end{thebibliography}
+
+\subsection*{Basic format for reports  and  handbooks (when available online):}
+  
+J. K. Author. ``Title of report,'' Company. City, State, Country. Rep. no., (optional: vol./issue), Date. [Online] Available: site/path/file 
+
+\subsection*{Examples:}
+
+\begin{thebibliography}{34}
+\setcounter{enumiv}{17}
+
+\bibitem{}R. J. Hijmans and J. van Etten, ``Raster: Geographic analysis and modeling with raster data,'' R Package Version 2.0-12, Jan. 12, 2012. [Online]. Available: http://CRAN.R-project.org/package=raster 
+
+\bibitem{}Teralyzer. Lytera UG, Kirchhain, Germany [Online]. Available: http://www.lytera.de/Terahertz\_THz\_Spectroscopy.php?id=home, Accessed on: Jun. 5, 2014.
+\end{thebibliography}
+
+\subsection*{Basic format for computer programs and electronic documents (when available online):}
+
+Legislative body. Number of Congress, Session. (year, month day). {\em Number of bill or resolution, Title}. [Type of medium]. Available: site/path/file
+{\em NOTE:} ISO recommends that capitalization follow the accepted practice for the language or script in which the information is given.
+
+\subsection*{Example:}
+
+\begin{thebibliography}{34}
+\setcounter{enumiv}{19}
+
+\bibitem{}U. S. House. 102nd Congress, 1st Session. (1991, Jan. 11). {\em H. Con. Res. 1, Sense of the Congress on Approval of Military Action}. [Online]. Available: LEXIS Library: GENFED File: BILLS 
+\end{thebibliography}
+
+\subsection*{Basic format for patents (when available online):}
+
+Name of the invention, by inventor’s name. (year, month day). Patent Number [Type of medium]. Available:site/path/file
+
+\subsection*{Example:}
+
+\begin{thebibliography}{34}
+\setcounter{enumiv}{20}
+
+\bibitem{}Musical tooth brush with mirror, by L. M. R. Brooks. (1992, May 19). Patent D 326 189
+[Online]. Available: NEXIS Library: LEXPAT File:   DES 
+
+\end{thebibliography}
+
+\subsection*{Basic format for conference proceedings (published):}
+
+J. K. Author, ``Title of paper,'' in {\em Abbreviated Name of Conf.}, City of Conf., Abbrev. State (if given), Country, year, pp. xxx--xxx.
+
+\subsection*{Example:}
+
+\begin{thebibliography}{34}
+\setcounter{enumiv}{21}
+
+\bibitem{}D. B. Payne and J. R. Stern, ``Wavelength-switched passively coupled single-mode optical network,'' in {\em Proc. IOOC-ECOC}, Boston, MA, USA, 1985,
+pp. 585--590.
+
+\end{thebibliography}
+
+\subsection*{Example for papers presented at conferences (unpublished):}
+
+\begin{thebibliography}{34}
+\setcounter{enumiv}{22}
+
+\bibitem{}D. E behard and E. Voges, ``Digital single sideband detection for inter ferometric sensors,'' presented at the {\em 2nd Int. Conf. Optical Fiber Sensors}, Stuttgart, Germany, Jan. 2--5, 1984.
+\end{thebibliography}
+
+\subsection*{Basic formatfor patents:}
+
+J. K. Author, ``Title of patent,'' U. S. Patent x xxx xxx, Abbrev. Month, day, year.
+
+\subsection*{Example:}
+
+\begin{thebibliography}{34}
+\setcounter{enumiv}{23}
+
+\bibitem{}G. Brandli and M. Dick, ``Alternating current fed power supply,'' U. S. Patent 4 084 217, Nov. 4, 1978.
+\end{thebibliography}
+
+\subsection*{Basic format for theses (M.S.) and dissertations (Ph.D.):}
+
+a) J. K. Author, ``Title of thesis,'' M. S. thesis, Abbrev. Dept., Abbrev. Univ., City of Univ., Abbrev. State, year.
+
+b) J. K. Author, ``Title of dissertation,'' Ph.D. dissertation, Abbrev. Dept., Abbrev. Univ., City of Univ., Abbrev. State, year.
+
+\subsection*{Examples:}
+
+\begin{thebibliography}{34}
+\setcounter{enumiv}{24}
+
+\bibitem{}J. O. Williams, ``Narrow-band analyzer,'' Ph.D. dissertation, Dept. Elect. Eng., Harvard Univ., Cambridge, MA, USA, 1993.
+
+\bibitem{}N. Kawasaki, ``Parametric study of thermal and chemical nonequilibrium nozzle flow,'' M.S. thesis, Dept. Electron. Eng., Osaka Univ., Osaka, Japan, 1993.
+\end{thebibliography}
+
+\subsection*{Basic format for the most common types of unpublished references:}
+
+a) J. K. Author, private communication, Abbrev. Month, year.
+
+b) J. K. Author, ``Title of paper,'' unpublished.
+
+c) J. K. Author, ``Title of paper,'' to be published.
+
+\subsection*{Examples:}
+
+\begin{thebibliography}{34}
+\setcounter{enumiv}{26}
+
+\bibitem{}A. Harrison, private communication, May 1995.
+
+\bibitem{}B. Smith, ``An approach to graphs of linear forms,'' unpublished.
+
+\bibitem{}A. Brahms, ``Representation error for real numbers in binary computer arithmetic,'' IEEE Computer Group Repository, Paper R-67-85.
+\end{thebibliography}
+
+\subsection*{Basic formats for standards:}
+
+a) {\em Title of Standard}, Standard number, date.
+
+b) {\em Title of Standard}, Standard number, Corporate author, location, date.
+
+\subsection*{Examples:}
+
+\begin{thebibliography}{34}
+\setcounter{enumiv}{29}
+
+
+\bibitem{}IEEE Criteria for Class IE Electric Systems, IEEE Standard 308, 1969.
+
+\bibitem{} Letter Symbols for Quantities, ANSI Standard Y10.5-1968.
+\end{thebibliography}
+
+\subsection*{Article number in reference examples:}
+
+\begin{thebibliography}{34}
+\setcounter{enumiv}{31}
+
+\bibitem{}R. Fardel, M. Nagel, F. Nuesch, T. Lippert, and A. Wokaun, ``Fabrication of organic light emitting diode pixels by laser-assisted forward transfer,'' {\em Appl. Phys. Lett.}, vol. 91, no. 6, Aug. 2007, Art. no. 061103. 
+
+\bibitem{} J. Zhang and N. Tansu, ``Optical gain and laser characteristics of InGaN quantum wells on ternary InGaN substrates,'' {\em IEEE Photon.} J., vol. 5, no. 2, Apr. 2013, Art. no. 2600111
+\end{thebibliography}
+
+\subsection*{Example when using et al.:}
+
+\begin{thebibliography}{34}
+\setcounter{enumiv}{33}
+
+\bibitem{}S. Azodolmolky {\em et al.}, Experimental demonstration of an impairment aware network planning and operation tool for transparent/translucent optical networks,'' {\em J. Lightw. Technol.}, vol. 29, no. 4, pp. 439--448, Sep. 2011.
+\end{thebibliography}
+
+
+\end{document}

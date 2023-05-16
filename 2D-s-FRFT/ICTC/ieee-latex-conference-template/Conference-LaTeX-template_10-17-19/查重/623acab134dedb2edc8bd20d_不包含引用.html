@@ -1,0 +1,888 @@
+
+    
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>  <html lang="zh-hans" class="ie ie6 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 7]>     <html lang="zh-hans" class="ie ie7 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 8]>     <html lang="zh-hans" class="ie ie8 lte9 lte8"> <![endif]-->
+<!--[if IE 9]>     <html lang="zh-hans" class="ie ie9 lte9"> <![endif]-->
+<!--[if gt IE 9]>  <html lang="zh-hans"> <![endif]-->
+<!--[if !IE]><!--> <html lang="zh-hans">             <!--<![endif]-->
+
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="author" content="Turnitin, LLC" />
+    <meta name="keywords" content="" /> 
+    <meta name="description" content="" />
+<title>Turnitin</title>
+
+<base href="http://www.turnitin.com">
+<style type="text/css">
+body	{
+	color: #333;
+	background: #C0C7CC;
+	padding: 0;
+	border: 0;
+	font: 13px Verdana, arial, sans-serif;
+	margin: 0;
+	}
+	
+form	{
+	padding: 0;
+	margin: 0;
+	}
+	
+body#display	{
+	}
+	
+body#bodysource	{
+	width: 520px;
+	background: #F0F4FA;
+	}
+	
+p	{
+	padding: 10px 18px;
+	margin: 0;
+	}
+	
+img	{
+	border: 0;
+	padding: 0;
+	}
+
+div	{
+	padding: 0;
+	border: 0;
+	}
+	
+iframe	{
+	border: 0;
+	margin: 0;
+	padding: 0;
+	}
+	
+strong	{
+	font-weight: bold;
+	}
+	
+ul	{
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+	font-size: 13px;
+	}
+	
+ul li	{
+	padding: 0;
+	margin: 0;
+	line-height: 16px;
+	}
+	
+#index span#exclude	{
+	margin: 0 50px 0 23px;
+	}
+	
+#index a	{
+	font-size: 11px;
+	padding: 0 8px;
+	}
+	
+#index select	{
+	font-size: 12px;
+	border: 1px solid #888;
+	}
+	
+#index input.small	{
+	margin: 0 0 0 5px;
+	width: 30px;
+	color: #D10A0A;
+	font-weight: bold;
+	font-size: 13px;
+	border: 1px solid #888;
+	vertical-align: baseline;
+	}
+		
+div.links	{
+	width: 85%;
+	margin: 0 auto;
+	border-left: 1px solid #888;
+	border-right: 1px solid #888;
+	padding-top: 8px;
+	background: #E8EEF7;
+	text-align: left;
+	}
+	
+.links div	{
+	padding: 5px 13px 10px 20px;
+	border-bottom: 1px dotted #888;
+	}
+	
+.links div p	{
+	padding: 2px 0 0 40px;
+	}
+	
+div#body	{
+	line-height: 17px;
+	width: 85%;
+	margin: auto;
+	padding: 20px 0;
+	background: #fff;
+	border-bottom: 1px solid #888;
+	border-right: 1px solid #888;
+	border-left: 1px solid #888;
+	text-align: left;
+	}
+	
+#body p	{
+	color: #000;
+	padding-top: 10 0;
+	margin: 0 40px;
+	}
+#actions {
+	display: none;
+	}
+
+a.exclude	{
+    float: right;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    bottom: 20px;
+    }
+
+/*= GENERAL 
+=== === === === === === === === === === === === === === === === === === === === === === === === === === === === === === */	
+
+body  #top_bar {
+display: none !important;
+}
+
+body #index #exclude,
+#download_button,
+#print_button,
+#index .right {
+display: inline-block;
+}
+
+body #index {
+width: 85%;
+margin-left: auto;
+margin-right: auto;
+border: 1px solid #999;
+background: #ececec url(new_dynamic/images/22bd7a01a025b8de122259e42762f0a7cb_ug_toolbar_bg.gif) repeat-x center left;
+}
+
+#toolbar_wrapper {
+padding-left:45px;
+}
+
+body #top {
+width: 85%;
+background-color: #FFF;
+margin-left: auto;
+margin-right: auto;
+border: 1px solid #999;
+border-bottom: none;
+height: 210px;
+}
+body #content {
+padding: 10px 60px;
+}
+body div#prefs {
+display: none;
+}
+
+body #top h2 {
+font-size: 20px;
+font-weight: normal;
+}
+
+body #top h2 strong {
+font-weight: normal;
+}
+body #top h2 em {
+font-style: normal;
+}
+
+
+body #top h3 {
+font-size: 16px;
+font-weight: normal;
+}
+
+body #top h3 strong {
+font-weight: normal;
+}
+body #top h3 em {
+font-style: normal;
+}
+
+        
+        body #top_body li	{/*Paper info li*/
+            padding:0;
+            margin: 0px 0px 2px 0px;
+            font-size: 10px;
+            }
+            
+            #top_body #print_wrapper {
+                float:left;
+                width: 50%;
+            }
+            
+            #top_body .similarity_print_wrapper {
+                width: 45%;
+                min-width: 283px;
+            }
+                
+            #top_body .similarity_box { /*Similiarity Box w/ Similarity by Source */
+                float: right;
+                border: solid 1px #666;
+                margin-top: 60px;
+                width: 350px;
+            }
+                #top_body .similarity_box .overall_similarity {
+                    float: left;
+                    border-right: solid 1px #666;
+                }
+                    #top_body .similarity_box .overall_similarity .color_box {
+                        font-size: 14px;
+                        width: 140px;
+                    }
+                        #top_body .color_box.green {
+                            background-color: green;
+                        }
+                        #top_body .color_box.blue {
+                            background-color: blue;
+                        }
+                        #top_body .color_box.yellow {
+                            background-color: yellow;
+                        }
+                        #top_body .color_box.orange {
+                            background-color: orange;
+                        }
+                        #top_body .color_box.red {
+                            background-color: red;
+                        }
+
+                    #top_body .similarity_box .overall_similarity .similarity_title {
+                        font-size: 13px;
+                        font-weight: normal;
+                        padding: 5px 0px 0px;
+                        text-align: center;
+                    }
+
+                    #top_body .similarity_box .overall_similarity .similarity_percent {
+                        font-size: 25px;
+                        font-family: georgia, times, serif;
+                        padding: 5px 0px 15px;
+                        text-align: center;
+                    }
+
+                    #top_body .similarity_box .overall_similarity a {
+                         display: none;
+                    }
+
+                #top_body .similarity_box .similarity_by_source {
+                     float: right;
+                     font-size: 10px;
+                }
+                    #top_body .similarity_box .similarity_by_source .similarity_title {
+                         padding: 6px 0px 0px 10px;
+                         font-weight: bold;
+                         text-align: left;
+                    }
+                    #top_body .similarity_box .similarity_by_source dl {
+                        padding-left: 10px;
+                        margin: 14px 7px 0px 0px;
+                    }
+                    #top_body .similarity_box .similarity_by_source dt {
+                         float: left;
+                         width: 160px;
+                    }
+                    #top_body .similarity_box .similarity_by_source dd {
+                        float: left;
+                        margin: 0px;
+                    }
+
+	
+		
+#index span#exclude	{
+	margin: 0 50px 0 23px;
+	}
+	
+#index a	{
+	font-size: 11px;
+	padding: 0 8px;
+	}
+	
+#index select	{
+	font-size: 12px;
+	border: 1px solid #888;
+	}
+	
+#index input.small	{
+	margin: 0 0 0 5px;
+	width: 30px;
+	color: #D10A0A;
+	font-weight: bold;
+	font-size: 13px;
+	border: 1px solid #888;
+	vertical-align: baseline;
+	}
+		
+div.links	{
+	width: 85%;
+	margin: 0 auto;
+	border-left: 1px solid #888;
+	border-right: 1px solid #888;
+	padding-top: 8px;
+	background: #E8EEF7;
+	text-align: left;
+	}
+	
+.links div	{
+	padding: 5px 13px 10px 20px;
+	border-bottom: 1px dotted #888;
+	}
+	
+.links div p	{
+	padding: 2px 0 0 40px;
+	}
+	
+div#body	{
+	line-height: 17px;
+	width: 85%;
+	margin: auto;
+	padding: 20px 0;
+	background: #fff;
+	border-bottom: 1px solid #888;
+	border-right: 1px solid #888;
+	border-left: 1px solid #888;
+	text-align: left;
+	}
+	
+#body p	{
+	color: #000;
+	padding-top: 10 0;
+	margin: 0 40px;
+	}
+#actions {
+	display: none;
+	}
+
+a.exclude	{
+	float: right;
+	margin: 0;
+	padding: 0;
+	}
+	
+#small_matches_prefs {
+    display:none;
+}
+
+/*
+Copyright (c) 2009, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.net/yui/license.txt
+version: 2.7.0
+*/
+.yui-button{display:-moz-inline-box;display:inline-block;vertical-align:text-bottom;}.yui-button .first-child{display:block;*display:inline-block;}.yui-button button,.yui-button a{display:block;*display:inline-block;border:none;margin:0;}.yui-button button{background-color:transparent;*overflow:visible;cursor:pointer;}.yui-button a{text-decoration:none;}.yui-skin-sam .yui-button{border-width:1px 0;border-style:solid;border-color:#808080;background:url(../images/yui270/build/assets/skins/sam/96b257a32a932f7739d7dab52b38ee8fcb_sprite.png) repeat-x 0 0;margin:auto .25em;}.yui-skin-sam .yui-button .first-child{border-width:0 1px;border-style:solid;border-color:#808080;margin:0 -1px;_margin:0;}.yui-skin-sam .yui-button button,.yui-skin-sam .yui-button a{padding:0 10px;font-size:93%;line-height:2;*line-height:1.7;min-height:2em;*min-height:auto;color:#000;}.yui-skin-sam .yui-button a{*line-height:1.875;*padding-bottom:1px;}.yui-skin-sam .yui-split-button button,.yui-skin-sam .yui-menu-button button{padding-right:20px;background-position:right center;background-repeat:no-repeat;}.yui-skin-sam .yui-menu-button button{background-image:url(yui270/build/button/assets/skins/sam/6305efb37fa05af65c79b58b9d4c1b03cb_menu-button-arrow.png);}.yui-skin-sam .yui-split-button button{background-image:url(yui270/build/button/assets/skins/sam/ced974d5c685e5dfa0a37b824a6b5d48cb_split-button-arrow.png);}.yui-skin-sam .yui-button-focus{border-color:#7D98B8;background-position:0 -1300px;}.yui-skin-sam .yui-button-focus .first-child{border-color:#7D98B8;}.yui-skin-sam .yui-button-focus button,.yui-skin-sam .yui-button-focus a{color:#000;}.yui-skin-sam .yui-split-button-focus button{background-image:url(yui270/build/button/assets/skins/sam/36e66540d2feba76b8991e18b76fe93bcb_split-button-arrow-focus.png);}.yui-skin-sam .yui-button-hover{border-color:#7D98B8;background-position:0 -1300px;}.yui-skin-sam .yui-button-hover .first-child{border-color:#7D98B8;}.yui-skin-sam .yui-button-hover button,.yui-skin-sam .yui-button-hover a{color:#000;}.yui-skin-sam .yui-split-button-hover button{background-image:url(yui270/build/button/assets/skins/sam/36e66540d2feba76b8991e18b76fe93bcb_split-button-arrow-hover.png);}.yui-skin-sam .yui-button-active{border-color:#7D98B8;background-position:0 -1700px;}.yui-skin-sam .yui-button-active .first-child{border-color:#7D98B8;}.yui-skin-sam .yui-button-active button,.yui-skin-sam .yui-button-active a{color:#000;}.yui-skin-sam .yui-split-button-activeoption{border-color:#808080;background-position:0 0;}.yui-skin-sam .yui-split-button-activeoption .first-child{border-color:#808080;}.yui-skin-sam .yui-split-button-activeoption button{background-image:url(yui270/build/button/assets/skins/sam/890272b241c1d8a0db3ce5680b71fab0cb_split-button-arrow-active.png);}.yui-skin-sam .yui-radio-button-checked,.yui-skin-sam .yui-checkbox-button-checked{border-color:#304369;background-position:0 -1400px;}.yui-skin-sam .yui-radio-button-checked .first-child,.yui-skin-sam .yui-checkbox-button-checked .first-child{border-color:#304369;}.yui-skin-sam .yui-radio-button-checked button,.yui-skin-sam .yui-checkbox-button-checked button{color:#fff;}.yui-skin-sam .yui-button-disabled{border-color:#ccc;background-position:0 -1500px;}.yui-skin-sam .yui-button-disabled .first-child{border-color:#ccc;}.yui-skin-sam .yui-button-disabled button,.yui-skin-sam .yui-button-disabled a{color:#A6A6A6;cursor:default;}.yui-skin-sam .yui-menu-button-disabled button{background-image:url(yui270/build/button/assets/skins/sam/4df7235ca027f2546b2a216e59f81fb0cb_menu-button-arrow-disabled.png);}.yui-skin-sam .yui-split-button-disabled button{background-image:url(yui270/build/button/assets/skins/sam/db73dce6da2f5c5f02399c93488ce69ecb_split-button-arrow-disabled.png);}
+
+</style>
+
+</head>
+
+<body onload="">
+
+
+
+<link rel="stylesheet" type="text/css" href="/r/build/css/tii/88ee4ccd3555f2b759921fb5d58d83e5cb_container.css" media="all" />
+
+
+
+
+<script type="text/javascript" src="/r/build/js/tii/8b608684a5f4aec1b540987c93498c01cb_tii_anonymous_marking.js"></script>
+
+
+
+
+<script type="text/javascript">
+
+function initAnonymousMarking () {
+    // initialize panel.  
+    var config = {
+            zindex: 4,
+            underlay: 'none',
+            modal: true,
+            visible: false,
+            draggable: false,
+            close: false,
+            fixedcenter: true
+    };
+    if ($('disable_anonymous_marking')) {
+        disableAnonymousMarkingPanel = new IP.widget.Panel($('disable_anonymous_marking'), config);
+        if($D.hasClass('disable_anonymous_marking', 'app')) {
+            disableAnonymousMarkingPanel.center = function () {
+                var nViewportOffset = 20,
+                    elementWidth = this.element.offsetWidth,
+                    elementHeight = this.element.offsetHeight,
+                    viewPortWidth = $D.getViewportWidth(),
+                    viewPortHeight = $D.getViewportHeight(),
+                    x,
+                    y;
+
+                if (elementWidth < viewPortWidth) {
+                    x = (viewPortWidth / 2) - (elementWidth / 2) + $D.getDocumentScrollLeft();
+                } else {
+                    x = nViewportOffset + $D.getDocumentScrollLeft();
+                }
+
+				if (browser == 'Internet Explorer') {
+					x = 0;
+				}
+                y = 2 + $D.getDocumentScrollTop();
+
+                this.cfg.setProperty("xy", [parseInt(x, 10), parseInt(y, 10)]);
+                this.cfg.refireEvent("iframe");
+            };
+        }
+        disableAnonymousMarkingPanel.render(document.body);
+        disableAnonymousMarkingPanel.hideEvent.subscribe(function () { $('anonymous_error').innerHTML = ''; }, false);
+        disableAnonymousMarkingPanel.hide();
+        Element.show($('disable_anonymous_marking'));
+    }
+}
+
+function disableAM (data) {
+    $('anonymous_title').innerHTML = data.title;
+    document.disable_anonymous_marking_form.objectid.value = data.oid;
+    disableAnonymousMarkingPanel.show();
+}
+
+function checkDisableAM () {
+    var form = document.disable_anonymous_marking_form;
+    if (form.reason.value.length <= 5) {
+        $('anonymous_error').innerHTML = "请提供关闭匿名标记的原因。您的理由必须超过 10 个字符长度。";
+    }
+    else {
+        form.submit();
+    }
+    return;
+}
+
+YAHOO.util.Event.onDOMReady(initAnonymousMarking);
+
+</script>
+
+<div id="disable_anonymous_marking" class="app" style="display: none;">
+<div class="anonymous_frames">
+<form method="post" name="disable_anonymous_marking_form">
+    <input type="hidden" name="objectid" value=""/>
+    <input type="hidden" name="disable_anonymous_marking" value="1"/> 
+    <div class="anonymous_header">
+    	<h1>关闭匿名标记</h1>
+		<p>请说明关闭匿名标记的原因： <span id="anonymous_title"></span><br />
+			<strong>警告: 管理员可以存取此资讯。此设定是永久性的。</strong>
+        
+            </p>
+        
+    </div>
+    <div class="anonymous_body">
+        <textarea name="reason" cols="30" rows="3"></textarea>
+        <p id="anonymous_error"></p>
+    </div>
+    <div class="anonymous_footer">
+		<div class="anonymous_footer_buttons">
+            <span class="submit_form_button"><input type="button" onClick="checkDisableAM();" value="提交"></span><br>
+        	<span class="submit_form_button"><input type="button" value="取消" onClick="disableAnonymousMarkingPanel.hide();"></span>
+		</div>
+    </div>
+</form>
+</div>
+</div>
+<div id="actions">
+<p>这是您报告的印表版的检视。请点击 "打印" 以继续或 "结束" 以关闭视窗。</p>
+<script type="text/javascript" language="javascript">
+	var browserName=navigator.appName;
+	var browserVer=parseInt(navigator.appVersion);
+	if ((navigator.appVersion.indexOf("Mac")!=-1) && (browserName == "Microsoft Internet Explorer")) {
+		document.write('<span class="AR10">键入 COMMAND-P 开始打印。</span><br><br>');
+	} else {
+		document.write('<a href="javascript:window.print();">打印</a>&nbsp;&nbsp;');
+	}
+</script>
+<a href="javascript:window.close();">完成</a>
+</div>
+
+
+<!-- ########################### Preferences pop-up ##########################--> 
+<div id="prefs" style="visibility:hidden">
+<div class="padding">
+<form name="prefs_form" method="post" accept-charset="utf-8">
+<script type="text/javascript" language="javascript">
+function savePrefs(){
+	if (document.prefs_form.changed.value == 1){
+		document.prefs_form.submit();
+	}else{
+        hidePrefsPane();
+	}
+}
+
+function showPrefsPane(){
+    document.getElementById('prefs').style.visibility='visible';
+    document.getElementById('use_colors').focus();
+}
+
+function hidePrefsPane(){
+    document.getElementById('prefs').style.visibility='hidden';
+    document.getElementById('prefs_link').focus();
+}
+
+
+var overlay;
+function showSmallMatchExclusions() {
+    var linkRegion = $D.getRegion('exclude_small_matches_link');
+    var panelRegion = $D.getRegion('small_matches_prefs');
+    var indexRegion = $D.getRegion('index');
+    
+    var topLocation = indexRegion.bottom;
+    $D.setStyle('small_matches_prefs', 'top', topLocation + 'px');
+    $D.setStyle('small_matches_prefs', 'left', linkRegion.left + 'px');
+    
+    $D.setStyle('small_matches_prefs', 'visibility', 'visible');
+
+    // focus the field
+    $D.hasClass('exclude_by_percent_row', 'selected') ? $('exclude_by_percent_value').focus() : $('exclude_by_words_value').focus();
+}
+
+function hideSmallMatchExclusions() {
+    $D.setStyle('small_matches_prefs', 'visibility', 'hidden');
+}
+
+function selectSmallExclusionMethod(enableType) {
+    if(enableType == 'words') {
+        $('exclude_by_words_value').focus();
+        
+        $D.addClass('exclude_by_words_row', 'selected');
+        $D.removeClass('exclude_by_percent_row', 'selected');
+        $D.removeClass('exclude_by_words_row', 'disabled');
+        $D.addClass('exclude_by_percent_row', 'disabled');
+    }
+    else {
+        $('exclude_by_percent_value').focus();
+        
+        $D.removeClass('exclude_by_words_row', 'selected');
+        $D.addClass('exclude_by_percent_row', 'selected');
+        $D.addClass('exclude_by_words_row', 'disabled');
+        $D.removeClass('exclude_by_percent_row', 'disabled');
+    }
+}
+
+function updateExcludePercentage(wordCount) {
+    var percent = Math.floor(wordCount / 3140 * 100);
+    
+    $('exclude_by_percent_value').value = percent;
+}
+
+function updateExcludeWordCount(percent) {
+    var wordCount = Math.floor((percent/100) * 3140);
+    
+    $('exclude_by_words_value').value = wordCount;
+}
+
+function submitSmallMatchesChange() {
+    var excludeBy = $D.hasClass('exclude_by_percent_row', 'selected') ? 'percent' : 'words';
+    var excludeValue = excludeBy == 'percent' ? $('exclude_by_percent_value').value : $('exclude_by_words_value').value;
+    
+    changeSmallMatchExclusion(excludeBy, parseInt(excludeValue), 3140);
+}
+
+</script>
+</script>
+<input type="hidden" name="changed" value="0">
+        <div class="pref_rows">
+                <label for="use_colors">颜色代码匹配：</label>
+                <select id="use_colors" name="use_colors" onchange="document.prefs_form.changed.value=1">
+                    <option value="1">是
+                    <option value="0">否 
+                </select>
+                <div class="clear"></div>
+        </div>
+        <div class="pref_rows">
+                <label for="def_report_mode">预设模式：</label>
+                <select id="def_report_mode" name="def_report_mode" onchange="document.prefs_form.changed.value=1">
+                    <option value="0">显示所有匹配度最高的
+                    <option value="1">每次显示一个匹配的
+                    <option value="2">快速查看报告（经典页面）
+                </select>
+                <div class="clear"></div>
+        </div>
+        <div class="pref_rows">
+                <label for="report_scrolling">自动导航</label>
+                <select id="report_scrolling" name="report_scrolling" onchange="document.prefs_form.changed.value=1">
+                    <option value="0">跳到下一个符合处
+                    <option value="1">移动到下一个谋和处
+                </select>
+                <div class="clear"></div>
+        </div>
+        
+        <div id="prefs_confirm">
+            <button onClick="savePrefs()" >储存</button>  
+         <a href="javascript:void(0);" onClick="hidePrefsPane();">取消</a>
+        </div>
+</form>
+</div>
+</div>
+<!-- ########################### END Preferences pop-up  ##########################--> 
+
+<!-- ########################### BEGIN small matches pop-up  ##########################--> 
+<div id="small_matches_prefs">
+    <form onsubmit="submitSmallMatchesChange(); return false;">
+        <ul>
+            <li id="exclude_by_words_row" class="selected">
+                <label for="exclude_by_words_value">字数: </label>
+                <input type="text" id="exclude_by_words_value" size="3" value="" onkeyup="updateExcludePercentage(this.value)" onfocus="selectSmallExclusionMethod('words')"> 字
+            </li>
+            <li id="exclude_by_percent_row" class="disabled">
+                <label for="exclude_by_percent_value">百分比: </label>
+                <input type="text" id="exclude_by_percent_value" size="3" value="" max-length="3" onkeyup="updateExcludeWordCount(this.value)" onfocus="selectSmallExclusionMethod('percent')"> %
+            </li>
+        </ul>
+        <p><input type='submit' value="提交"> 或 <a href="javascript:hideSmallMatchExclusions()">取消</a></p>
+    </form>
+</div>
+
+<!-- ########################### END small matches pop-up  ##########################-->
+
+<!-- ########################### Top of Report  ##########################--> 
+<div id="top">
+    <div id="content">
+    
+        <!-- ######### Top Bar  ##########################--> 
+        <div id="top_bar">
+                <ul id="top_bar_list1">
+                      <!-- Preferences --><li><a id="prefs_link" href="javascript:showPrefsPane();">preferences</a></li> 
+                </ul>
+                <ul id="top_bar_list2">
+                      
+                </ul>
+                <div class="clear"></div>
+        </div>   
+        <!-- ######### END Top Bar  ##########################--> 
+        
+        
+        <!-- ######### Top Body  ##########################--> 
+        <div id="top_body">
+        
+            <div id="print_wrapper">
+                <div class="general_info">
+                    <!-- Logo --> 
+                    <h2>
+                        <span class=""></span>
+                        <strong>Turnitin</strong>
+                        <em>原创性报告</em>
+                     </h2>
+                 
+                     <!-- Paper Info -->               
+                     <ul>
+                         <li>已处理到: 23-3月-2022 03:12 CDT</li>
+                         <li>代码: 1790793663 </li>
+                         <li>字数: 3140</li>
+                         <li>已提交: 1</li>
+                     </ul>
+                </div>
+
+                 <!-- Paper Title --> 
+                <h3>
+                    <strong>Sparse_signal_detection_and_fingerprint_feature_recognition_based_on_fast_2D_DFRFT_1</strong> 
+                    
+                    <em>整合者 1 1</em>
+                    
+                </h3>
+            </div>
+            
+            <div id="similarity_print_wrapper">
+                <div class="similarity_box">
+                    <div class="overall_similarity">
+                        <div class="color_box green">&nbsp;</div>
+                        <div class="similarity_title">相似度指标</div>
+                        <div class="similarity_percent">8%</div>
+                    </div>
+                    <div class="similarity_by_source">
+                        <div class="similarity_title">依來源标示相似度</div>
+                        <dl>
+                            <dt>Internet&nbsp;Sources:</dt>
+                            <dd>4%</dd>
+                            <div class="clear"></div>
+                            <dt>出版物:</dt>
+                            <dd>7%</dd>
+                            <div class="clear"></div>
+                            <dt>学生文稿:</dt>
+                            <dd>0%</dd>
+                            <div class="clear"></div>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+                                 
+        </div>
+        <!-- ######### END Top Body  ##########################--> 
+        
+        
+    </div>
+</div>
+<!-- ########################### END Top of Report  ##########################--> 
+
+
+
+<!-- ########################### TOOLBAR  ##########################--> 
+<div id="index">
+	<div id="toolbar_wrapper">
+        
+	</div>
+</div>
+<!-- ########################### END TOOLBAR  ##########################--> 
+
+
+<div class="links">
+	<div>
+	<p>1% match (出版物)</p>
+
+	<p><a href="https://doi.org/10.1364/JOSAA.15.000825" target="_blank" style="color:#D10A0A">M. Alper Kutay, Haldun M. Ozaktas. "Optimal image restoration with the fractional Fourier transform", Journal of the Optical Society of America A, 1998</a></p>
+
+
+	</div>
+	<div>
+	<p>1% match (出版物)</p>
+
+	<p><a href="https://doi.org/10.1016/j.sigpro.2016.08.008" target="_blank" style="color:#287B28">Na Liu, Ran Tao, Robert Wang, Yunkai Deng, Ning Li, Shuo Zhao. "Signal reconstruction from recurrent samples in fractional Fourier domain and its application in multichannel SAR", Signal Processing, 2017</a></p>
+
+
+	</div>
+	<div>
+	<p>1% match (从 2021年09月25日 的网络)</p>
+
+	<p><a href="http://www.imagetech-polynomials.com/PDF/Resolution%20of%20the%20Gibbs%20phenomenon%20for%20fractional%20Fourier%20series.pdf" target="_blank" style="color:blue">http://www.imagetech-polynomials.com/PDF/Resolution%20of%20the%20Gibbs%20phenomenon%20for%20fractional%20Fourier%20series.pdf</a></p>
+
+
+	</div>
+	<div>
+	<p>1% match (从 2020年07月16日 的网络)</p>
+
+	<p><a href="https://kafpson.kpi.ua/diplom/mag/2015/mag4_2015.pdf" target="_blank" style="color:brown">https://kafpson.kpi.ua/diplom/mag/2015/mag4_2015.pdf</a></p>
+
+
+	</div>
+	<div>
+	<p>< 1% match (出版物)</p>
+
+	<p><a href="https://doi.org/10.1007/s11760-011-0261-5" target="_blank" style="color:#B64B01">Deyun Wei, Qiwen Ran. "Multiplicative filtering in the fractional Fourier domain", Signal, Image and Video Processing, 2011</a></p>
+
+
+	</div>
+	<div>
+	<p>< 1% match (出版物)</p>
+
+	<p><a href="https://doi.org/10.1109/ICOSP.2008.4697519" target="_blank" style="color:#630000">Kewu Huang,  Ziyu Wang,  Ran Tao. "Study of incoherent demodulation technique in Chirp spread spectrum communication systems", 2008 9th International Conference on Signal Processing, 2008</a></p>
+
+
+	</div>
+	<div>
+	<p>< 1% match (从 2022年03月22日 来的学生文稿)</p>
+
+	<p><a href="javascript:openDSC(2267127791,1,'0')" target="_blank" style="color:#0270B6">Submitted to National Institute of Technology, Sri Nagar Jammu & Kashmir on 2022-03-22</a></p>
+
+
+	</div>
+	<div>
+	<p>< 1% match (出版物)</p>
+
+	<p><a href="https://doi.org/10.1049/iet-ipr.2017.0961" target="_blank" style="color:#330099">Nidhi Saxena, Kamalesh K. Sharma. "Pansharpening scheme using filtering in two‐dimensional discrete fractional Fourier transform", IET Image Processing, 2018</a></p>
+
+
+	</div>
+	<div>
+	<p>< 1% match (出版物)</p>
+
+	<p><a href="https://doi.org/10.1109/19.843057" target="_blank" style="color:#227967">Weon-Ki Yoon, M.J. Devaney. "Reactive power measurement using the wavelet transform", IEEE Transactions on Instrumentation and Measurement, 2000</a></p>
+
+
+	</div>
+	<div>
+	<p>< 1% match (出版物)</p>
+
+	<p><a href="https://doi.org/10.1109/JSTARS.2020.2981686" target="_blank" style="color:#CB0099">Xiaohan Zhang, Yafei Lv, Yao Libo, Wei Xiong, Chunlong Fu. "A New Benchmark and an Attribute-Guided Multi-Level Feature Representation Network for Fine-Grained Ship Classification in Optical Remote Sensing Images", IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, 2020</a></p>
+
+
+	</div>
+	<div>
+	<p>< 1% match (出版物)</p>
+
+	<p><a href="https://doi.org/10.1109/ISCAS.2005.1465611" target="_blank" style="color:#006331">Fan Gu,  Zhe-Ming Lu,  Jeng-Shyang Pan. "Multipurpose Image Watermarking in DCT Domain using Subsampling", 2005 IEEE International Symposium on Circuits and Systems, 2005</a></p>
+
+
+	</div>
+	<div>
+	<p>< 1% match (出版物)</p>
+
+	<p><a href="https://doi.org/10.1109/TMEE.2011.6199289" target="_blank" style="color:#795AB9">Meng Kong, , Lin Qi,  Ning Zheng,  Lei Gao, and  Enqing Chen. "Application of the 2D-FrFT combined with fuzzy fusion classification algorithm in human emotional state recognition", Proceedings 2011 International Conference on Transportation Mechanical and Electrical Engineering (TMEE), 2011.</a></p>
+
+
+	</div>
+	<div>
+	<p>< 1% match (出版物)</p>
+
+	<p><a href="https://doi.org/10.1016/S0165-1684(98)00024-3" target="_blank" style="color:#935F32">Pei, S.C.. "Two dimensional discrete fractional Fourier transform", Signal Processing, 19980529</a></p>
+
+
+	</div>
+	<div>
+	<p>< 1% match (出版物)</p>
+
+	<p><a href="https://doi.org/10.1007/s11432-008-0069-2" target="_blank" style="color:#ce0031">Ran Tao. "Research progress on discretization of fractional Fourier transform", Science in China Series F Information Sciences, 07/2008</a></p>
+
+
+	</div>
+	<div>
+	<p>< 1% match (从 2022年03月19日 的网络)</p>
+
+	<p><a href="https://www.oejournal.org/article/doi/10.12086/oee.2020.190660" target="_blank" style="color:#866712">https://www.oejournal.org/article/doi/10.12086/oee.2020.190660</a></p>
+
+
+	</div>
+	<div>
+	<p>< 1% match (出版物)</p>
+
+	<p><a href="https://doi.org/10.1109/LSP.2021.3050052" target="_blank" style="color:#63009c">Lei Gao, Lin Qi, Ling Guan. "The Property of Frequency Shift in 2D-FRFT Domain with Application to Image Encryption", IEEE Signal Processing Letters, 2021</a></p>
+
+
+	</div>
+	<div>
+	<p>< 1% match (从 2021年07月19日 的网络)</p>
+
+	<p><a href="https://coek.info/pdf-bivariate-dependence-properties-of-order-statistics-.html" target="_blank" style="color:#A85503">https://coek.info/pdf-bivariate-dependence-properties-of-order-statistics-.html</a></p>
+
+
+	</div>
+	<div>
+	<p>< 1% match (出版物)</p>
+
+	<p><a href="https://doi.org/10.3390/app11020583" target="_blank" style="color:#cc0066">Zhichen Zhang, Haiyan Wang, Haiyang Yao. "Time Reversal and Fractional Fourier Transform-Based Method for LFM Signal Detection in Underwater Multi-Path Channel", Applied Sciences, 2021</a></p>
+
+
+	</div>
+	<div>
+	<p>< 1% match (出版物)</p>
+
+	<p><a href="https://doi.org/10.1109/JSEN.2019.2937173" target="_blank" style="color:#21785B">Zhichun Zhao, Ran Tao, Gang Li, Yue Wang. "Sparse Fractional Energy Distribution and Its Application to Radar Detection of Marine Targets with Micro-motion", IEEE Sensors Journal, 2019</a></p>
+
+
+	</div>
+</div>
+<div id="body" tabIndex="0">
+<p>Sparse signal detection and fingerprint feature recognition based on fast 2D DFRFT 1st Jun Yang School of Mathematics and Statistics Xidian University Xi’an, China yjjdyhhxx@163.com Abstract—In this paper, a <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 10 in source list: Xiaohan Zhang, Yafei Lv, Yao Libo, Wei Xiong, Chunlong Fu. "A New Benchmark and an Attribute-Guided Multi-Level Feature Representation Network for Fine-Grained Ship Classification in Optical Remote Sensing Images", IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, 2020"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=649376202&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#CB0099" class="#CB0099">two-dimensional fractional Fourier transform (2D</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> FRFT)-based fingerprint <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 10 in source list: Xiaohan Zhang, Yafei Lv, Yao Libo, Wei Xiong, Chunlong Fu. "A New Benchmark and an Attribute-Guided Multi-Level Feature Representation Network for Fine-Grained Ship Classification in Optical Remote Sensing Images", IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, 2020"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=649376202&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#CB0099" class="#CB0099">feature extraction</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> scheme <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 10 in source list: Xiaohan Zhang, Yafei Lv, Yao Libo, Wei Xiong, Chunlong Fu. "A New Benchmark and an Attribute-Guided Multi-Level Feature Representation Network for Fine-Grained Ship Classification in Optical Remote Sensing Images", IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, 2020"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=649376202&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#CB0099" class="#CB0099">is</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> proposed, <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 10 in source list: Xiaohan Zhang, Yafei Lv, Yao Libo, Wei Xiong, Chunlong Fu. "A New Benchmark and an Attribute-Guided Multi-Level Feature Representation Network for Fine-Grained Ship Classification in Optical Remote Sensing Images", IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, 2020"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=649376202&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#CB0099" class="#CB0099">based on the</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> fact that the fingerprint image can be approximated as two-dimensional chirp signals. And the sparse 2D fractional Fourier transform (STDFRFT) algorithm is proposed to achieve efficient computation of 2D FRFT. The effectiveness of the proposed STDFRFT algorithm is reflected in the simulations and applications of fractional domain sparse random signal detection and two-dimensional chirp signal detection and fingerprint feature recognition. Index Terms—sparse, fingerprint, fractional Fourier trans- form, chirp signals I. INTRODUCTION In the current information-based society, accurate and rapid identification of individuals is a fundamental issue to main- taine social order. However, traditional authentication methods (based on passwords, tokens, etc.) are often at risk of being lost, forgotten, and stolen. Fingerprint features are widely used in military and civilian applications due to being unique, stable, portable and not easily forged. In general, fingerprint features are extracted by analyzing the local and detailed struc- ture of the fingerprint texture [7], [8]. However, the extraction of fingerprint node features is complex. The enhancement, binarization and refinement processes are computationally intensive. We find that the fingerprint image can be regarded as an approximation of a two-dimensional chirp image. Thus, we propose a fingerprint feature extraction method <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 8 in source list: Nidhi Saxena, Kamalesh K. Sharma. "Pansharpening scheme using filtering in two‐dimensional discrete fractional Fourier transform", IET Image Processing, 2018"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=677741773&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#330099" class="#330099">based on two-dimensional discrete fractional Fourier transform (2D DFRFT</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match">). An efficient implementation <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 8 in source list: Nidhi Saxena, Kamalesh K. Sharma. "Pansharpening scheme using filtering in two‐dimensional discrete fractional Fourier transform", IET Image Processing, 2018"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=677741773&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#330099" class="#330099">is</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> also given. <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 8 in source list: Nidhi Saxena, Kamalesh K. Sharma. "Pansharpening scheme using filtering in two‐dimensional discrete fractional Fourier transform", IET Image Processing, 2018"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=677741773&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#330099" class="#330099">The</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 18 in source list: Zhichen Zhang, Haiyan Wang, Haiyang Yao. "Time Reversal and Fractional Fourier Transform-Based Method for LFM Signal Detection in Underwater Multi-Path Channel", Applied Sciences, 2021"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=677945570&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#cc0066" class="#cc0066">fractional Fourier transform (FRFT</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match">) [6] <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 18 in source list: Zhichen Zhang, Haiyan Wang, Haiyang Yao. "Time Reversal and Fractional Fourier Transform-Based Method for LFM Signal Detection in Underwater Multi-Path Channel", Applied Sciences, 2021"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=677945570&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#cc0066" class="#cc0066">is</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> an important <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 18 in source list: Zhichen Zhang, Haiyan Wang, Haiyang Yao. "Time Reversal and Fractional Fourier Transform-Based Method for LFM Signal Detection in Underwater Multi-Path Channel", Applied Sciences, 2021"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=677945570&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#cc0066" class="#cc0066">tool</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> for dealing with <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 19 in source list: Zhichun Zhao, Ran Tao, Gang Li, Yue Wang. "Sparse Fractional Energy Distribution and Its Application to Radar Detection of Marine Targets with Micro-motion", IEEE Sensors Journal, 2019"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=642011341&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#21785B" class="#21785B">non-stationary signals, especially</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> the <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 19 in source list: Zhichun Zhao, Ran Tao, Gang Li, Yue Wang. "Sparse Fractional Energy Distribution and Its Application to Radar Detection of Marine Targets with Micro-motion", IEEE Sensors Journal, 2019"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=642011341&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#21785B" class="#21785B">chirp signals</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match">. The chirp signal is strongly aggregated and even sparse <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 2 in source list: Na Liu, Ran Tao, Robert Wang, Yunkai Deng, Ning Li, Shuo Zhao. "Signal reconstruction from recurrent samples in fractional Fourier domain and its application in multichannel SAR", Signal Processing, 2017"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=613172553&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#287B28" class="#287B28">in the fractional Fourier domain. The FRFT is a</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> generalized form <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 2 in source list: Na Liu, Ran Tao, Robert Wang, Yunkai Deng, Ning Li, Shuo Zhao. "Signal reconstruction from recurrent samples in fractional Fourier domain and its application in multichannel SAR", Signal Processing, 2017"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=613172553&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#287B28" class="#287B28">of the Fourier transform</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match">, and <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 2 in source list: Na Liu, Ran Tao, Robert Wang, Yunkai Deng, Ning Li, Shuo Zhao. "Signal reconstruction from recurrent samples in fractional Fourier domain and its application in multichannel SAR", Signal Processing, 2017"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=613172553&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#287B28" class="#287B28">can</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> jointly characterize time and frequency due to the addition of a rotation angle parameter. The FRFT <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 5 in source list: Deyun Wei, Qiwen Ran. "Multiplicative filtering in the fractional Fourier domain", Signal, Image and Video Processing, 2011"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=34847775&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#B64B01" class="#B64B01">can be</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> regarded <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 5 in source list: Deyun Wei, Qiwen Ran. "Multiplicative filtering in the fractional Fourier domain", Signal, Image and Video Processing, 2011"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=34847775&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#B64B01" class="#B64B01">as</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> the <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 5 in source list: Deyun Wei, Qiwen Ran. "Multiplicative filtering in the fractional Fourier domain", Signal, Image and Video Processing, 2011"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=34847775&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#B64B01" class="#B64B01">rotation of the signal in the time-frequency plane</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match">. When <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 5 in source list: Deyun Wei, Qiwen Ran. "Multiplicative filtering in the fractional Fourier domain", Signal, Image and Video Processing, 2011"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=34847775&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#B64B01" class="#B64B01">the</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> rotation parameter increases from zero gradually, the FRFT can obtain all the features <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 6 in source list: Kewu Huang,  Ziyu Wang,  Ran Tao. "Study of incoherent demodulation technique in Chirp spread spectrum communication systems", 2008 9th International Conference on Signal Processing, 2008"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=38083719&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#630000" class="#630000">of the signal</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> that change <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 6 in source list: Kewu Huang,  Ziyu Wang,  Ran Tao. "Study of incoherent demodulation technique in Chirp spread spectrum communication systems", 2008 9th International Conference on Signal Processing, 2008"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=38083719&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#630000" class="#630000">from the time domain to the frequency domain</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> gradually. Therefore, <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 6 in source list: Kewu Huang,  Ziyu Wang,  Ran Tao. "Study of incoherent demodulation technique in Chirp spread spectrum communication systems", 2008 9th International Conference on Signal Processing, 2008"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=38083719&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#630000" class="#630000">the</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> fingerprint image is able to acquire more comprehensive features after FRFT. The <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 14 in source list: Ran Tao. "Research progress on discretization of fractional Fourier transform", Science in China Series F Information Sciences, 07/2008"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=20114190&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#ce0031" class="#ce0031">application of FRFT to</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> digital <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 14 in source list: Ran Tao. "Research progress on discretization of fractional Fourier transform", Science in China Series F Information Sciences, 07/2008"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=20114190&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#ce0031" class="#ce0031">signal processing is</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> in- separable from <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 14 in source list: Ran Tao. "Research progress on discretization of fractional Fourier transform", Science in China Series F Information Sciences, 07/2008"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=20114190&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#ce0031" class="#ce0031">its discretization</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> and efficient and accurate cal- culation [4]. However, research in this area is still incomplete. At present, there is no discrete fractional Fourier transform (DFRFT) that can satisfy all the following properties: unitary, rotational additivity, degenerate to discrete Fourier transform, approximate continuous FRFT, can be written in closed form, calculation low complexity. Sampling DFRFT is the most intuitive definition of discretization, which is directly sampled by a continuous FRFT kernel. When rotational additivity is not required, the sampled DFRFT is widely used in various fields. We consider the most cited Pei-type [2] DFRFT in this paper. In general, the computation of the 2D DFRFT [5] is accomplished by converting to 1D DFRFT. Specifically, 1D DFRFT is first performed on each row (column) of the two- dimensional signal, and then 1D DFRFT is calculated on each column (row) of the obtained signal. The Pei-type DFRFT requires two chirp products and one FFT operation. Therefore, a 2D DFRFT (2) of s(t1,t2) needs 2(N1+N2) chirp products and N1 + N2 FFT operations, where the size of s(t1,t2) is (N1,N2). For applications with large amounts of data, this calculation is very expensive. It also cannot meet the needs of real-time processing. Inspired by the idea of MARS-SFT [1] algorithm to estimate 2D DFT, we will propose the Sparse Two-Dimensional Fractional Fourier Transform (STDFRFT) algorithm to further optimize the computational structure of 2D DFRFT. This wil lead to fast and effective fingerprint feature recognition. II. <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: M. Alper Kutay, Haldun M. Ozaktas. "Optimal image restoration with the fractional Fourier transform", Journal of the Optical Society of America A, 1998"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=13512258&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">TWO-DIMENSIONAL</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> DISCRETE <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: M. Alper Kutay, Haldun M. Ozaktas. "Optimal image restoration with the fractional Fourier transform", Journal of the Optical Society of America A, 1998"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=13512258&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">FRACTIONAL FOURIER</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> TRANSFORM <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: M. Alper Kutay, Haldun M. Ozaktas. "Optimal image restoration with the fractional Fourier transform", Journal of the Optical Society of America A, 1998"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=13512258&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">In this section, we</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> will describe <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: M. Alper Kutay, Haldun M. Ozaktas. "Optimal image restoration with the fractional Fourier transform", Journal of the Optical Society of America A, 1998"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=13512258&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">the definition of 2D</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> DFRFT and give its closeable variants. The 2D DFRFT of the signal s(t1, t2) with order (α, β) is defined as N1−1 N2−1 Osα,β(u1, u2) = [Kα(u1, t1) ⊗ Kβ(u2, t2)]s(<img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 17 in source list: https://coek.info/pdf-bivariate-dependence-properties-of-order-statistics-.html"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=901322673&n=3796&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#A85503" class="#A85503">t1, t2) t∑1=0 t∑2=0</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> (1) where t1, u1 = <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 7 in source list: Submitted to National Institute of Technology, Sri Nagar Jammu & Kashmir on 2022-03-22"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=40.4721395283588&svr=45&lang=zh_hans&oid=oid:1:2267127791&n=1&perc=0', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#0270B6" class="#0270B6">0, 1, · · · , N1−1, and</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> t2, u2 = <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 7 in source list: Submitted to National Institute of Technology, Sri Nagar Jammu & Kashmir on 2022-03-22"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=40.4721395283588&svr=45&lang=zh_hans&oid=oid:1:2267127791&n=1&perc=0', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#0270B6" class="#0270B6">0, 1, · · · , N2−1. And N1, N2</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> are integers. Meanwhile, ⊗ represents the tensor product and Kλ denotes the 1D fractional Fourier transform kernel with order λ. According to the definition of Pei-type DFRFT, the a chirp signal and construct a input signal of two-dimensional Oαs,β(u1, u2) can be rewritten as: sparse Fourier transform (2D SFT) stage. N1−1 N2−1 AEu s(t1, t2)EtEut Oαs,β (u1, u2) = ⎧ t1=0 t2=0 ⎪⎨ AEu N∑1−1 N∑2−1 s(t1, t2)EtEu−t1 t1=0 t2=0 ⎪⎩ ∑ ∑ sin α, sin β > 0 c(t1, t2) = s(t1, t2) exp j 2t21t∆ant12α + j t22∆t22 (9) { 2 tan β } where <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 4 in source list: https://kafpson.kpi.ua/diplom/mag/2015/mag4_2015.pdf"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=3785693504&n=3788&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:brown" class="brown">t1 = 0, 1, · · · N1 − 1</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> and <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 4 in source list: https://kafpson.kpi.ua/diplom/mag/2015/mag4_2015.pdf"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=3785693504&n=3788&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:brown" class="brown">t2 = 0, 1, · · · N2 − 1</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match">. sin α, sin βM<ea0nwhile, ∆t1, ∆t2 denote the sampling intervals on time (2) domain. And α, β are the orders of the two dimensions, respectively. where A= (<img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 3 in source list: http://www.imagetech-polynomials.com/PDF/Resolution of the Gibbs phenomenon for fractional Fourier series.pdf"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=1844552007&n=3796&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:blue" class="blue">sin α − j cos α)(sin β − j cos β</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match">) √ N1 N2 (3) Eu = exp j u21∆u21 + j u22∆u22 (4) <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 9 in source list: Weon-Ki Yoon, M.J. Devaney. "Reactive power measurement using the wavelet transform", IEEE Transactions on Instrumentation and Measurement, 2000"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=2514905&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#227967" class="#227967">2 tan α 2 tan β</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> Et = exp j t21∆t21 + j t22∆t22 { } { <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 9 in source list: Weon-Ki Yoon, M.J. Devaney. "Reactive power measurement using the wavelet transform", IEEE Transactions on Instrumentation and Measurement, 2000"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=2514905&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#227967" class="#227967">2 tan α 2 tan β</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> (5) t1u1 t2u2 } Eut = exp −j2π( N + { 1 N ) (6) 2 } and ∆t1, ∆t2, ∆u1, ∆u2 denote the sampling intervals on time and fractional Fourier domain, respectively. They must satisfy the following constraints: 2π |sin α| ∆t1∆u1 = N1 2π |sin β| ∆t2∆u2 = N2 (7) (8) It can be found that (2) is simplified to 2D DFT if α = β = (2c + 1/2)π. And if α = β = (2c + 3/2)pi, the 2D DFRFT degenerates into 2D inverse Fourier transform. Where c is arbitrary integer. III. SPARSE <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: M. Alper Kutay, Haldun M. Ozaktas. "Optimal image restoration with the fractional Fourier transform", Journal of the Optical Society of America A, 1998"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=13512258&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">TWO-DIMENSIONAL FRACTIONAL FOURIER</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> TRANSFORM <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: M. Alper Kutay, Haldun M. Ozaktas. "Optimal image restoration with the fractional Fourier transform", Journal of the Optical Society of America A, 1998"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=13512258&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">In this section, we</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> will introduce <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: M. Alper Kutay, Haldun M. Ozaktas. "Optimal image restoration with the fractional Fourier transform", Journal of the Optical Society of America A, 1998"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=13512258&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">the</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> proposed sparse <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: M. Alper Kutay, Haldun M. Ozaktas. "Optimal image restoration with the fractional Fourier transform", Journal of the Optical Society of America A, 1998"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=13512258&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">2D fractional Fourier</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> transform (STDFRFT) algorithm. Generally, a two-dimensional(2D) FRFT is obtained by applying a one- dimensional FRFT to all rows of a two-dimensional signal and then applying a one-dimensional FRFT to all columns of the resulting signal. Differently, the proposed STDFRFT method uses a new structure to greatly reduce the computational complexity. Suppose the 2D DFRFT Osα,β(u1, u2) of the (N1, N2)-point signal s(t1, t2) satisfies that all but k coefficients are negligi- ble. Where k is an integer much smaller than N = N1N2. That is, the signal s(t1, t2) is k-sparse, and the sparsity is k. The goal of our STDFRFT algorithm is to estimate the locations (ξ1i, ξ2i)ki=1 and amplitudes [Osα,β(ξ1i, ξ2i)]ki=1 of the k significant frequencies. Without loss of generality, we suppose sin α > 0, sin β > 0 and the structure of STDFRFT algorithm is as follows. a) First chirp modulation: To compensate for the effect of the chirp basis, we multiply the original signal s(t1, t2) with b) Two-dimensional sparse Fourier transform: We use an iterative algorithm to estimate the spectrum of c(t1, t2). In each iteration, the aliasing filter is used to divide the N frequencies into B LCM(N1,N2) parts, called buckets. It = is worth noting that the spectrum Fcr(u1, u2) to be estimated in the r-th iteration is obtaioned by subtracting the result estimated by previous iterations from the original spectrum Fc(u1, u2). Then, a simple operation is used to map the 1D spectrum obtained by the B-point FFT to the approximation of Fcr(u1, u2). The analysis of the bucketing process is as follows. We extract slices b0(l), b1(l), b2(l) in c(t1, t2) that are parallel to each other: b0(l) = c([α1l + τ1]N1, [α2l + τ2]N2) b1(l) = c([α1l + τ1 + 1]N1, [α2l + τ2]N2) b2(l) = c([α1l + τ1]N1, [α2l + τ2 + 1]N2) (10) (11) (12) where l = 0, 1, · · · B − 1, and α1, α2, τ1, τ2 are arbitrary integrals with α1, <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 4 in source list: https://kafpson.kpi.ua/diplom/mag/2015/mag4_2015.pdf"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=3785693504&n=3788&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:brown" class="brown">τ1 ∈ [0, N1 − 1</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match">], and α2, <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 4 in source list: https://kafpson.kpi.ua/diplom/mag/2015/mag4_2015.pdf"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=3785693504&n=3788&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:brown" class="brown">τ2 ∈ [0, N2 − 1</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match">]. It is must satisfied that (α1, α2), (α1, B/N2), (α2, B/N1) are coprime pairs. And [a]b denotes a mod b. Three groups of buckets can be obtained after performing the FFT operation on slices b0(l), b1(l), b2(l), respectively. Fb0(h) = B u1τ1 u2τ2 N (u∑1,u2) Fc(u1, u2) exp(j2π[ N1 N2 ])Θ + (13) Fb1(h) = B Fc(u1, u2) exp(j2π[ u1τ1 + u1 u2τ2 N + ])Θ (u∑1,u2) N1 N2 (14) Fb2(h) = B u1τ1 u2τ2 + u2 N Fc(u1, u2) exp(j2π[ + ])Θ (u∑1,u2) N1 N2 (15) where h = 0, 1, · · · B − 1 and N = N1N2. Moreover, Fc(u1, u2) is the 2D DFT of c(t1, t2) on (u1, u2). Θ is an impulse function with u1α1 u2α2 h Θ = δ( N + − ) (16) 1 N 2 B According to (16), the value of the h-th bucket is equal to the sum of the projection of N/B frequencies (u1, u2) which satisfy uN1α11 + u2α2 N2 − h B = 0. Conversely, the frequency at (u1, u2) is divided into bucket h with h = Bu1α1 + Bu2α2 N (17) [ 1 N 2 ]B Therefore, all frequencies are divided into B buckets evenly and orthogonally. The analysis of the frequency estimation process is as follows. For convenience, the buckets’ values after subtract- ing the influence of the previous iteration is still recorded as Fb0(h), Fb1(h), Fb2(h). Because the signal s(t1, t2) is k- sparse, the spectrum to be estimated is sparse. Therefore, some buckets only include negligible noises and significant frequencies must be divided into largest-value buckets. Assum- ing that the large-value bucket h contains only one significant frequency, the location (ξ1, ξ2) and amplitude Fcr(ξ1, ξ2) of this frequency can be estimated as: N1 Fb1 (h) ξ1 = [ 2π φ( Fb0 (h) ]N1 ) (18) ξ2 = N2 Fb2(h) [2π φ(Fb0(h) ]N2 ) (19) Fcr(ξ1,ξ2) = NFb0(h)exp −j2π(ξ1τ1 + ξ2τ2 ) /B (20) [ N 1 N 2 ] where φ(a) denotes the phase of a and [a]b denotes a mod b. For a noise-free signal, after the above bucketing and estimation process in each iteration, most of the significant frequencies can be estimated accurately with a high probabil- ity. For a noisy signal, the positions decoded by (18), (19) are non-integers and we need to round them up. Unfortunately, this may lead to decoding errors. To reduce the probability of decoding errors, the voting method is utilized. Specifically, the inner loop is executed q times in each iteration, and the decoded positions are recorded. If a location is marked more than p times, we consider it to be the location of an significant frequency. After several times iterations, amplitude of the frequencies that are not decoded are set to zero. In addition, if frequencies are decoded repeatedly, the amplitudes are summed. c) Second chirp modulation: To modulate from the Fourier domain to the fractional Fourier domain, we multiply the above estimation by another chirp signal and get the final result of STDFRFT: Õsα,β(u1, u2) = AFc(u1, u2) exp j u212t∆anuα21 + j u222t∆anuβ22 { (21) } where <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 11 in source list: Fan Gu,  Zhe-Ming Lu,  Jeng-Shyang Pan. "Multipurpose Image Watermarking in DCT Domain using Subsampling", 2005 IEEE International Symposium on Circuits and Systems, 2005"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=11796905&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#006331" class="#006331">u1 = 0, 1, · · · N1 − 1</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> and <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 11 in source list: Fan Gu,  Zhe-Ming Lu,  Jeng-Shyang Pan. "Multipurpose Image Watermarking in DCT Domain using Subsampling", 2005 IEEE International Symposium on Circuits and Systems, 2005"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=11796905&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#006331" class="#006331">u2 = 0, 1, · · · N2 − 1</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match">. Mean- while, ∆u1, ∆u2 denote the sampling intervals on fractional Fourier domain. And α, β are the orders of the two dimensions, A is constant with A= (<img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 3 in source list: http://www.imagetech-polynomials.com/PDF/Resolution of the Gibbs phenomenon for fractional Fourier series.pdf"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=1844552007&n=3796&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:blue" class="blue">sin α − j cos α)(sin β − j cos β</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match">) √ N1 N2 (22) IV. NUMERICAL SIMULATION AND APPLICATIONS A. Fractional Domain Sparse Random Signal Detection <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 12 in source list: Meng Kong, , Lin Qi,  Ning Zheng,  Lei Gao, and  Enqing Chen. "Application of the 2D-FrFT combined with fuzzy fusion classification algorithm in human emotional state recognition", Proceedings 2011 International Conference on Transportation Mechanical and Electrical Engineering (TMEE), 2011."><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=39848422&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#795AB9" class="#795AB9">In order to verify the</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> effectiveness <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 12 in source list: Meng Kong, , Lin Qi,  Ning Zheng,  Lei Gao, and  Enqing Chen. "Application of the 2D-FrFT combined with fuzzy fusion classification algorithm in human emotional state recognition", Proceedings 2011 International Conference on Transportation Mechanical and Electrical Engineering (TMEE), 2011."><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=39848422&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#795AB9" class="#795AB9">of the algorithm, we</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> will construct a random signal with sparse fractional domain. Specifically, we set <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 15 in source list: https://www.oejournal.org/article/doi/10.12086/oee.2020.190660"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=484977196&n=3798&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#866712" class="#866712">the sparsity of the signal</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> to 5 <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 15 in source list: https://www.oejournal.org/article/doi/10.12086/oee.2020.190660"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=484977196&n=3798&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#866712" class="#866712">in the fractional Fourier</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> domainn with orders (1.2566◦, 1.2566◦). The positions and amplitudes of the five significant frequencies are random. At the same time, additive white Gaussian noise with SNR=26.9825dB is added. The constructed signal with a size of (256,256) is <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 16 in source list: Lei Gao, Lin Qi, Ling Guan. "The Property of Frequency Shift in 2D-FRFT Domain with Application to Image Encryption", IEEE Signal Processing Letters, 2021"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=677569066&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#63009c" class="#63009c">shown in Fig. 1. Fig. 1. The</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> experimental <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 16 in source list: Lei Gao, Lin Qi, Ling Guan. "The Property of Frequency Shift in 2D-FRFT Domain with Application to Image Encryption", IEEE Signal Processing Letters, 2021"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=677569066&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#63009c" class="#63009c">signal</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match">. (a) Result by decomposing. 0 50 100 150 200 250 0 50 100 150 200 250 (b) Our result. 0 50 100 150 200 250 0 50 100 150 200 250 (c) Result by decomposing. (d) Our result. Fig. 2. Detection Results of Sparse Random Signals in Fractional Domain. First, we detect the signal by decomposing 2D DFRFT to two groups of 1D DFRFT, which is implemented with two chirp products and one FFT operate. And Fig. 2(a) shows the results of random sparse signal detection. Then, signal detection in the fractional Fourier domainn is performed by the proposed STDFRFT algorithm. The program has one iteration in total. We set three loops in each iteration, and the voting threshold is 2. The obtained results are shown in Fig. 2(b). In order to show more clearly, we give the corresponding top views in Fig. 2(c) and Fig. 2(d), respectively. As can be seen from Fig. 2, our algorithm accurately detects all the significant components in the noisy situation. Finally, to visualize algo- rithm performance, we measured the computation time and the number of samples used in the time domain for both methods. Meanwhile, the L2 errors between the decoded results and the original fractional domain spectrum (no noise) are also computed. The table I presents the time, L2 error and the samples number for the two methods clearly. And our method is optimal in every respect. TABLE I COMPARISON OF THE TWO METHODS Time/s L2 error samples number Result by decomposing 0.01396 31.7074 65536 Our result 0.00630 6.9803 2304 B. Two-dimensional chirp signal detection <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 13 in source list: Pei, S.C.. "Two dimensional discrete fractional Fourier transform", Signal Processing, 19980529"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=10140012&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#935F32" class="#935F32">In this</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> subsection, <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 13 in source list: Pei, S.C.. "Two dimensional discrete fractional Fourier transform", Signal Processing, 19980529"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=10140012&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#935F32" class="#935F32">we will apply the proposed</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> STDFRFT <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 13 in source list: Pei, S.C.. "Two dimensional discrete fractional Fourier transform", Signal Processing, 19980529"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=10140012&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#935F32" class="#935F32">algorithm to</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> detecte a two-dimensional chirp signals. The chirp signal has been studied and applied in pulse compression, radar carrier, sonar and so on widely. The two-dimensional chirp signal is also one of the important non-stationary sig- nals. By definition, the FRFT can decompose a signal with a chirp orthonormal basis. Therefore, FRFT has a natural advantage for processing chirp signals, and has strong energy concentration. Meanwhile, the fractional Fourier domain of the chirp signal is sparse at the optimal rotation angle. The chirp signal used for the experiment is shown in the Fig. 3. The sampling rate at discretization is 4096 Hz/s, and the pulse duration is 2−6s. To check the simulation results, we recorded the radar parameters of the transmitted pulses. Specifically, the pulse amplitude is equal to 3. The modulation frequency and center frequency are (-16.4Hz/s, -7.8Hz/s) and (640Hz, 896Hz), respectively. 0 10-3 3 5 10 2.5 2 1.5 1 0.5 0 -0.5 -1 -1.5 -2 -2.5 15 0 5 10 15 10-3 Fig. 3. Two-dimensional chirp signal First, we use a discrete polynomial phase transform to estimate the frequency modulation in both dimensions of the signal. Then, the optimal rotation angle of the chirp signal is estimated using the frequency modulation. Finally, the STDFRFT algorithm is used to estimate the fractional Fourier spectrum of the chirp signal. The program has one iteration in total. We set three loops in each iteration, and the voting (a) Amplitude spectrum in fractional Fourier domain. 0 500 1000 1500 2000 2500 3000 3500 4000 0 500 1000 1500 2000 2500 3000 3500 4000 (b) The top view of 4(a). Fig. 4. Chirp signal detection results. threshold is 2. The Fig.4 shows the estimated result and its top view. It is easy to get that the location of the dominant frequency is the center frequency of the chirp signal. The amplitude estimated by the algorithm is 2.999998, which is close to the true amplitude of the signal. Therefor, the detection of the 2D chirp signal is well done. C. Fingerprint Feature Recognition In this subsection, we will consider more complex sig- nals, real fingerprint images. Generally, fingerprint feature recognition includes the overall ridge flow pattern of the fingerprint, details of texture structure, etc. This is a time- consuming analysis process. We propose feature extraction and recognition in fractional Fourier domain, which can quickly obtain the main features of fingerprints. Gao [3] proposed that the phase of FRFT has relative time-shift invariance. Therefore, the extracted features in fractional Fourier domain can be used for fingerprint matching. Furthermore, the texture of the fingerprint can be approximated as a 2D chirp signal, and the fractional Fourier domain is almost sparse at a certain order. The preprocessed fingerprint signal is shown in Fig. 5. We use the direct method and the STDFRFT method to realize the feature recognition of fingerprints, as shown in Fig. 6. It is not difficult to find that our method can identify the main features of fingerprint <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 2 in source list: Na Liu, Ran Tao, Robert Wang, Yunkai Deng, Ning Li, Shuo Zhao. "Signal reconstruction from recurrent samples in fractional Fourier domain and its application in multichannel SAR", Signal Processing, 2017"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=613172553&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#287B28" class="#287B28">signals in the fractional Fourier domain</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match">. And <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 2 in source list: Na Liu, Ran Tao, Robert Wang, Yunkai Deng, Ning Li, Shuo Zhao. "Signal reconstruction from recurrent samples in fractional Fourier domain and its application in multichannel SAR", Signal Processing, 2017"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=613172553&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#287B28" class="#287B28">the</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> effects <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 2 in source list: Na Liu, Ran Tao, Robert Wang, Yunkai Deng, Ning Li, Shuo Zhao. "Signal reconstruction from recurrent samples in fractional Fourier domain and its application in multichannel SAR", Signal Processing, 2017"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=40.4721395283588&svr=45&lang=zh_hans&sid=613172553&n=37&svr=59&session-id=51db8c3655c947b291f7351f0d747c65', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#287B28" class="#287B28">of</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> glitches and blurs are filtered out. Fig. 5. Fingerprint image after preprocessing [2] Pei S C, Ding J J. Closed-form discrete fractional and affine Fourier transforms[J]. IEEE Transactions on Signal Processing, 2000, 48(5): 1338-1353. [3] Gao L, Qi L, Guan L. The spatial shift operations on image reconstruc- tion from 2D-FRFT information with application to SAR moving target detection[C]//2013 IEEE China Summit and International Conference on Signal and Information Processing. IEEE, 2013: 523-527. [4] Su X, Tao R, Kang X. Analysis and comparison of discrete fractional Fourier transforms[J]. Signal Processing, 2019, 160: 284-298. [5] Saxena N, Sharma K K. Pansharpening scheme using filtering in two-dimensional discrete fractional Fourier transform[J]. IET Image Processing, 2018, 12(6): 1013-1019. [6] Sejdić E, Djurović I, Stanković L J. Fractional Fourier transform as a signal processing tool: An overview of recent developments[J]. Signal Processing, 2011, 91(6): 1351-1369. [7] Wang X, Wang F, Fan J, et al. Fingerprint classification based on contin- uous orientation field and singular points[C]//2009 IEEE International Conference on Intelligent Computing and Intelligent Systems. IEEE, 2009, 4: 189-193. [8] Cao K, Yang X, Chen X, et al. Minutia handedness: A novel global feature for minutiae-based fingerprint matching[J]. Pattern recognition letters, 2012, 33(10): 1411-1421. (a) Direct methed. (b) Our methed. Fig. 6. Recognition Results of Finger in Fractional Domain. V. CONCLUSIONS In this paper, an accurate and efficient fast algorithm for 2D FRFT is proposed. Compared with the traditional method, the proposed STDFRFT performs better in terms of running time, L2 error, and sample storage. Based on the fact that the fingerprint image can be approximated as 2D chirp signals, the algorithm is also successfully applied to the recognition of fractional Fourier domain features of fingerprints. REFERENCES [1] Wang S, Patel V M, Petropulu A. Multidimensional sparse Fourier transform based on the Fourier projection-slice theorem[J]. IEEE Trans- actions on Signal Processing, 2018, 67(1): 54-69. </p>
+</div>
+</body>
+</html>
